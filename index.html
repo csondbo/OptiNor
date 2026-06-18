@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OptiNor – Lydreduserende Gulvsystem</title>
+  <meta name="description" content="OptiNor leverer Norges beste høydejusterbare lydreduserende gulvsystem – testvinner ifølge SINTEF-rapport 2023." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      --g900: #0a2b0a;
+      --g800: #0e3d0e;
+      --g700: #155215;
+      --g600: #1a6e1a;
+      --g500: #228b22;
+      --g400: #2faa2f;
+      --g300: #5ec85e;
+      --g200: #a8dda8;
+      --g100: #dff0df;
+      --g50:  #f2faf2;
+      --cream: #f8fbf8;
+      --white: #ffffff;
+      --ink:  #111a11;
+      --ink2: #3a4b3a;
+      --ink3: #6b7e6b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ──────────────────────────────────────────── */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 1.1rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.35s ease, box-shadow 0.35s ease;
+    }
+    #nav.scrolled {
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.07);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; }
+    .nav-brand img { height: 40px; width: auto; }
+    .nav-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem; font-weight: 700; letter-spacing: -0.02em;
+      color: var(--g700);
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 2.25rem; list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.85rem; font-weight: 500; color: var(--ink2);
+      text-decoration: none; letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--g600); }
+    .nav-cta {
+      background: var(--g700) !important;
+      color: #fff !important;
+      padding: 0.55rem 1.35rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+    .nav-cta:hover { background: var(--g800) !important; transform: translateY(-1px); }
+
+    /* ─── HERO ─────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex; align-items: center;
+      background: var(--g900);
+      overflow: hidden;
+    }
+    .hero-radial {
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 75% 65% at 72% 48%, rgba(34,139,34,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 45% 70% at 18% 25%, rgba(21,82,21,0.14) 0%, transparent 55%),
+        radial-gradient(ellipse 30% 50% at 85% 85%, rgba(21,82,21,0.1) 0%, transparent 50%);
+    }
+    .hero-noise {
+      position: absolute; inset: 0; pointer-events: none; opacity: 0.25; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .hero-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 72px 72px;
+    }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 1240px; margin: 0 auto;
+      padding: 9rem 2.5rem 6rem;
+      display: grid; grid-template-columns: 1.1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+
+    .hero-kicker {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--g300);
+      display: flex; align-items: center; gap: 0.7rem;
+      margin-bottom: 1.4rem;
+    }
+    .hero-kicker::before {
+      content: ''; display: block;
+      width: 2rem; height: 1px; background: var(--g300);
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5.5vw, 5rem);
+      font-weight: 700; line-height: 1.04; letter-spacing: -0.03em;
+      color: #fff; margin-bottom: 1.4rem;
+    }
+    .hero-title em { font-style: italic; color: var(--g300); }
+
+    .hero-sub {
+      font-size: 1.05rem; font-weight: 300; line-height: 1.72;
+      color: rgba(255,255,255,0.62); max-width: 430px; margin-bottom: 2.5rem;
+    }
+
+    .hero-btns { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+
+    .btn-green {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      background: var(--g500); color: #fff;
+      padding: 0.9rem 2rem; border-radius: 7px;
+      font-size: 0.95rem; font-weight: 600; text-decoration: none;
+      box-shadow: 0 4px 24px rgba(34,139,34,0.35);
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-green:hover {
+      background: var(--g600); transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(34,139,34,0.45);
+    }
+    .btn-green:active { transform: translateY(0); }
+
+    .btn-ghost-w {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      color: rgba(255,255,255,0.75); font-size: 0.95rem; font-weight: 500;
+      text-decoration: none; background: none; border: none; cursor: pointer;
+      transition: color 0.2s;
+    }
+    .btn-ghost-w:hover { color: #fff; }
+
+    /* Hero visual */
+    .hero-visual {
+      display: flex; justify-content: center; align-items: center;
+    }
+    .logo-stage {
+      position: relative; width: 320px; height: 320px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo-ring {
+      position: absolute; border-radius: 50%; border: 1px solid rgba(47,170,47,0.18);
+      animation: spin linear infinite;
+    }
+    .logo-ring-1 { inset: 0; animation-duration: 25s; }
+    .logo-ring-2 { inset: -2.5rem; animation-duration: 40s; animation-direction: reverse; border-color: rgba(47,170,47,0.1); }
+    .logo-ring-3 { inset: -5rem; animation-duration: 60s; border-color: rgba(47,170,47,0.06); }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    .logo-ring-1::before, .logo-ring-1::after {
+      content: ''; position: absolute; width: 6px; height: 6px;
+      border-radius: 50%; background: var(--g400);
+    }
+    .logo-ring-1::before { top: -3px; left: 50%; transform: translateX(-50%); }
+    .logo-ring-1::after { bottom: -3px; left: 50%; transform: translateX(-50%); }
+
+    .logo-card {
+      width: 230px; height: 230px; border-radius: 26px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(10px);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow:
+        0 0 0 1px rgba(47,170,47,0.12),
+        0 24px 70px rgba(0,0,0,0.5),
+        0 0 120px rgba(34,139,34,0.1);
+      position: relative; z-index: 1;
+    }
+    .logo-card img { width: 150px; height: auto; }
+
+    /* ─── STATS ─────────────────────────────────────────── */
+    .stats {
+      background: var(--white);
+      border-bottom: 1px solid #e2ece2;
+    }
+    .stats-inner {
+      max-width: 1240px; margin: 0 auto;
+      padding: 3.25rem 2.5rem;
+      display: grid; grid-template-columns: repeat(4,1fr);
+    }
+    .stat {
+      text-align: center; padding: 1.25rem;
+      border-right: 1px solid #e2ece2;
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem; font-weight: 700; letter-spacing: -0.03em;
+      color: var(--g700); line-height: 1; margin-bottom: 0.4rem;
+    }
+    .stat-lbl {
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--ink3);
+    }
+
+    /* ─── SECTION SHELL ─────────────────────────────────── */
+    .sec { padding: 7rem 2.5rem; }
+    .wrap { max-width: 1240px; margin: 0 auto; }
+
+    .sec-kicker {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--g600);
+      display: flex; align-items: center; gap: 0.65rem;
+      margin-bottom: 0.9rem;
+    }
+    .sec-kicker::before {
+      content: ''; width: 1.5rem; height: 2px; background: var(--g500);
+    }
+    .sec-kicker-center { justify-content: center; }
+    .sec-kicker-center::before { display: none; }
+
+    .sec-h {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.8vw, 3.1rem);
+      font-weight: 700; line-height: 1.08; letter-spacing: -0.025em;
+      color: var(--ink); margin-bottom: 1.25rem;
+    }
+    .sec-h-white { color: #fff; }
+
+    .sec-p {
+      font-size: 1.02rem; line-height: 1.75; color: var(--ink2); max-width: 540px;
+    }
+    .sec-p-muted { color: rgba(255,255,255,0.62); }
+
+    /* ─── ABOUT ──────────────────────────────────────────── */
+    .about { background: var(--cream); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6rem; align-items: start;
+    }
+
+    .timeline { display: flex; flex-direction: column; margin-top: 2.5rem; }
+    .tl-item {
+      display: flex; gap: 1.4rem; padding-bottom: 2.25rem;
+      position: relative;
+    }
+    .tl-item::after {
+      content: ''; position: absolute;
+      left: 1.35rem; top: 2.75rem; bottom: 0;
+      width: 1px; background: var(--g200);
+    }
+    .tl-item:last-child::after { display: none; }
+    .tl-dot {
+      width: 2.7rem; height: 2.7rem; flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--g100); border: 2px solid var(--g300);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem; font-weight: 700; color: var(--g700);
+      letter-spacing: 0.04em; line-height: 1; text-align: center;
+    }
+    .tl-body h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-weight: 700; color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+    .tl-body p { font-size: 0.875rem; line-height: 1.65; color: var(--ink2); }
+
+    /* ─── FEATURES ───────────────────────────────────────── */
+    .features { background: var(--white); }
+    .feat-head {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: end; margin-bottom: 3.5rem;
+    }
+    .feat-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1.35rem;
+    }
+    .feat-card {
+      padding: 2rem; border-radius: 12px;
+      background: var(--g50); border: 1px solid #d6ead6;
+      position: relative; overflow: hidden;
+      transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+    }
+    .feat-card::after {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--g500), var(--g300));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .feat-card:hover { transform: translateY(-4px); box-shadow: 0 14px 48px rgba(34,139,34,0.1); border-color: var(--g300); }
+    .feat-card:hover::after { transform: scaleX(1); }
+
+    .feat-icon {
+      width: 2.75rem; height: 2.75rem; border-radius: 9px;
+      background: var(--g700); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+    .feat-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.65rem;
+    }
+    .feat-desc { font-size: 0.875rem; line-height: 1.65; color: var(--ink2); }
+
+    /* ─── SINTEF ─────────────────────────────────────────── */
+    .sintef-sec {
+      background: var(--g900); position: relative; overflow: hidden;
+    }
+    .sintef-sec::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 55% 75% at 80% 55%, rgba(34,139,34,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 35% 55% at 12% 80%, rgba(34,139,34,0.08) 0%, transparent 50%);
+    }
+    .sintef-inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6rem; align-items: center;
+    }
+
+    .badge-wrap {
+      display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+    }
+    .badge {
+      width: 240px; height: 240px; border-radius: 50%;
+      border: 2px solid rgba(47,170,47,0.3);
+      background: radial-gradient(circle at 38% 38%, rgba(47,170,47,0.16), rgba(47,170,47,0.04));
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 2rem; position: relative;
+    }
+    .badge::after {
+      content: ''; position: absolute; inset: -10px;
+      border-radius: 50%; border: 1px solid rgba(47,170,47,0.14);
+    }
+    .badge-star { font-size: 2.2rem; margin-bottom: 0.3rem; line-height: 1; }
+    .badge-sup {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--g300); margin-bottom: 0.2rem;
+    }
+    .badge-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 700; color: #fff; line-height: 1.1;
+    }
+    .badge-label { font-size: 0.7rem; color: rgba(255,255,255,0.4); margin-top: 0.25rem; }
+
+    .meas-table {
+      margin-top: 1.5rem; width: 100%;
+      border-collapse: collapse;
+    }
+    .meas-table thead th {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.35);
+      padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08);
+      text-align: left;
+    }
+    .meas-table tbody td {
+      font-size: 0.88rem; padding: 0.75rem;
+      color: rgba(255,255,255,0.78); border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .meas-table tbody td:first-child { color: rgba(255,255,255,0.45); font-size: 0.8rem; }
+    .meas-table tbody td.hi {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem; font-weight: 700; color: var(--g300); letter-spacing: 0.02em;
+    }
+
+    .sintef-points { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.9rem; }
+    .s-point {
+      display: flex; align-items: flex-start; gap: 0.9rem;
+      padding: 1.1rem 1.2rem; border-radius: 8px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
+    }
+    .s-check {
+      width: 1.8rem; height: 1.8rem; flex-shrink: 0; border-radius: 6px;
+      background: rgba(47,170,47,0.18); border: 1px solid rgba(47,170,47,0.3);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--g300); font-size: 0.8rem;
+    }
+    .s-text { font-size: 0.875rem; color: rgba(255,255,255,0.72); line-height: 1.55; }
+    .s-text strong { color: #fff; display: block; font-size: 0.85rem; margin-bottom: 0.15rem; }
+
+    /* ─── INSTALLATION ───────────────────────────────────── */
+    .install-sec { background: var(--cream); }
+    .install-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6rem; align-items: start; margin-top: 3.5rem;
+    }
+    .step-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .step {
+      display: flex; gap: 1.2rem; align-items: flex-start;
+      padding: 1.5rem; border-radius: 10px; background: var(--white);
+      border: 1px solid #daeada;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .step:hover { border-color: var(--g300); box-shadow: 0 4px 24px rgba(34,139,34,0.08); }
+    .step-n {
+      width: 2.4rem; height: 2.4rem; flex-shrink: 0; border-radius: 50%;
+      background: var(--g700); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700;
+    }
+    .step-body h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-weight: 700; color: var(--ink); margin-bottom: 0.3rem;
+    }
+    .step-body p { font-size: 0.85rem; line-height: 1.6; color: var(--ink2); }
+
+    .spec-card {
+      background: var(--white); border-radius: 14px;
+      border: 1px solid #daeada; padding: 2.5rem;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.05);
+    }
+    .spec-card-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--g600); margin-bottom: 1.75rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .spec-card-title::before {
+      content: ''; width: 1.25rem; height: 2px; background: var(--g500);
+    }
+    .spec-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.9rem 0; border-bottom: 1px solid #edf5ed;
+    }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-k { font-size: 0.83rem; color: var(--ink3); font-weight: 400; }
+    .spec-v {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.95rem; font-weight: 700; color: var(--g700); letter-spacing: 0.02em;
+    }
+
+    /* ─── CTA ────────────────────────────────────────────── */
+    .cta-sec { background: var(--white); text-align: center; }
+    .cta-box { max-width: 660px; margin: 0 auto; padding: 5.5rem 2rem; }
+    .cta-p { font-size: 1.02rem; color: var(--ink2); line-height: 1.75; margin: 1.5rem auto 2.5rem; max-width: 480px; }
+    .cta-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-lg {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 1.05rem 2.4rem; border-radius: 8px;
+      font-size: 0.97rem; font-weight: 600; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-lg-green {
+      background: var(--g700); color: #fff;
+      box-shadow: 0 4px 24px rgba(21,82,21,0.22), 0 8px 48px rgba(21,82,21,0.1);
+    }
+    .btn-lg-green:hover {
+      background: var(--g800); transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(21,82,21,0.3), 0 16px 60px rgba(21,82,21,0.14);
+    }
+    .btn-lg-out {
+      border: 2px solid var(--g700); color: var(--g700);
+    }
+    .btn-lg-out:hover { background: var(--g700); color: #fff; transform: translateY(-2px); }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    footer {
+      background: var(--g900); color: rgba(255,255,255,0.55);
+      padding: 4.5rem 2.5rem 2.5rem;
+    }
+    .foot-inner { max-width: 1240px; margin: 0 auto; }
+    .foot-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem; padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 2rem;
+    }
+    .foot-logo { display: flex; flex-direction: column; gap: 1rem; }
+    .foot-logo img { height: 44px; width: auto; filter: brightness(0) invert(1); opacity: 0.75; }
+    .foot-tag { font-size: 0.85rem; line-height: 1.65; color: rgba(255,255,255,0.4); max-width: 280px; }
+    .foot-h {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--g300); margin-bottom: 1.25rem;
+    }
+    .foot-links { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+    .foot-links a {
+      font-size: 0.875rem; color: rgba(255,255,255,0.5); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .foot-links a:hover { color: #fff; }
+    .foot-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.78rem; color: rgba(255,255,255,0.28);
+    }
+
+    /* ─── SCROLL REVEAL ─────────────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.08s; }
+    .d2 { transition-delay: 0.16s; }
+    .d3 { transition-delay: 0.24s; }
+    .d4 { transition-delay: 0.32s; }
+
+    /* ─── RESPONSIVE ────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; padding-top: 8rem; }
+      .hero-visual { display: none; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); }
+      .stat { border-right: none; border-bottom: 1px solid #e2ece2; }
+      .about-grid, .feat-head, .sintef-inner, .install-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .feat-grid { grid-template-columns: 1fr; }
+      .foot-top { grid-template-columns: 1fr; gap: 2rem; }
+      .foot-bottom { flex-direction: column; gap: 0.4rem; text-align: center; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ══════════════════════════════════════════════ -->
+<nav id="nav">
+  <a class="nav-brand" href="#home">
+    <img src="/brand_assets/logo.jpeg" alt="OptiNor Logo" />
+    <span class="nav-wordmark">OptiNor</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">Om oss</a></li>
+    <li><a href="#features">Produktet</a></li>
+    <li><a href="#sintef">SINTEF</a></li>
+    <li><a href="#installation">Montering</a></li>
+    <li><a href="#contact" class="nav-cta">Kontakt oss</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ HERO ══════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-radial"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-inner">
+    <div>
+      <div class="hero-kicker">Lydreduserende Gulvsystem</div>
+      <h1 class="hero-title">
+        Norges<br>
+        <em>beste</em> justerbare<br>
+        gulvsystem
+      </h1>
+      <p class="hero-sub">
+        OptiNors høydejusterbare lydreduserende gulvsystem er testet og kåret til
+        best på markedet av SINTEF. Raskere montering, høyere bæreevne og
+        overlegen lydreduksjon — godkjent over norske og svenske C-krav.
+      </p>
+      <div class="hero-btns">
+        <a href="#features" class="btn-green">
+          Se produktet
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#sintef" class="btn-ghost-w">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          SINTEF-rapport 2023
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="logo-stage">
+        <div class="logo-ring logo-ring-1"></div>
+        <div class="logo-ring logo-ring-2"></div>
+        <div class="logo-ring logo-ring-3"></div>
+        <div class="logo-card">
+          <img src="/brand_assets/logo.jpeg" alt="OptiNor" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STATS ══════════════════════════════════════════════ -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat reveal">
+      <div class="stat-num">500k+</div>
+      <div class="stat-lbl">m² installert i Norge</div>
+    </div>
+    <div class="stat reveal d1">
+      <div class="stat-num">#1</div>
+      <div class="stat-lbl">SINTEF Testvinner 2023</div>
+    </div>
+    <div class="stat reveal d2">
+      <div class="stat-num">27 dB</div>
+      <div class="stat-lbl">Trinnlydforbedring DLw</div>
+    </div>
+    <div class="stat reveal d3">
+      <div class="stat-num">50 cm</div>
+      <div class="stat-lbl">Maks justeringshøyde</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ══════════════════════════════════════════════ -->
+<section class="sec about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="sec-kicker">Vår historie</div>
+        <h2 class="sec-h">25 år med gulvteknologi og innovasjon</h2>
+        <p class="sec-p">
+          Siden 1999 har OptiNor levert lydreduserende gulvsystemer av høyeste kvalitet.
+          Med over 500 000 m² installert og prosjekter fra Lindesnes til Nordkapp er vi
+          Norges ledende ekspert på høydejusterbare gulvsystemer.
+        </p>
+        <p class="sec-p" style="margin-top: 1rem;">
+          Et av våre mest prestisjetunge prosjekter er den norske regjeringens
+          ViP-hotell i Inkognitogata, Oslo — et bevis på systemets ytelse og pålitelighet
+          på høyeste nivå. Fra 2017 konsentrerte vi oss om å utvikle neste generasjons
+          system i nært samarbeid med Norgips Norge AS og kvalitetsprodusenter i Sverige.
+        </p>
+      </div>
+      <div class="reveal d2">
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot">1999</div>
+            <div class="tl-body">
+              <h4>Oppstart</h4>
+              <p>Representerer svenske fabrikker i Norge innen høydejusterbare lydreduserende gulvsystemer. Kurs og presentasjoner til entreprenører, arkitekter og akustikere.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">2010</div>
+            <div class="tl-body">
+              <h4>500 000 m² levert</h4>
+              <p>Passerer milepælen med prosjekter over hele landet, inkludert den norske regjeringens ViP-hotell i Inkognitogata, Oslo.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">2017</div>
+            <div class="tl-body">
+              <h4>Produktutvikling</h4>
+              <p>Starter utvikling av neste generasjons gulvsystem i samarbeid med teknisk sjef hos Norgips Norge AS og svenske produsenter.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">2023</div>
+            <div class="tl-body">
+              <h4>SINTEF-testvinner</h4>
+              <p>Akkreditert testing bekrefter 27 dB trinnlydforbedring. OptiNor kåres til best på markedet. OptiNor AS etableres formelt.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FEATURES ═══════════════════════════════════════════ -->
+<section class="sec features" id="features">
+  <div class="wrap">
+    <div class="feat-head">
+      <div class="reveal">
+        <div class="sec-kicker">Produktet</div>
+        <h2 class="sec-h">Designet for ytelse og rask montering</h2>
+      </div>
+      <div class="reveal d2">
+        <p class="sec-p">
+          OptiNors gulvsystem overgår gjeldende C-krav i Norge og Sverige, og er
+          den eneste løsningen på markedet med justerbar CC-avstand. Resultatet:
+          raskere montering og økt fortjeneste på hvert prosjekt.
+        </p>
+      </div>
+    </div>
+
+    <div class="feat-grid">
+      <div class="feat-card reveal">
+        <div class="feat-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><path d="M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+        </div>
+        <h3 class="feat-title">Oppfyller C-krav</h3>
+        <p class="feat-desc">Systemet møter gjeldende C-krav i Norge og Sverige med god margin og er fremtidssikret mot strengere krav.</p>
+      </div>
+
+      <div class="feat-card reveal d1">
+        <div class="feat-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="8" cy="6" r="2" fill="currentColor" stroke="none"/><circle cx="16" cy="12" r="2" fill="currentColor" stroke="none"/><circle cx="10" cy="18" r="2" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <h3 class="feat-title">Justerbar CC-avstand</h3>
+        <p class="feat-desc">Den eneste løsningen på markedet med enkel CC-regulering. Løser montasjeproblemer raskt uten spesialverktøy.</p>
+      </div>
+
+      <div class="feat-card reveal d2">
+        <div class="feat-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 class="feat-title">Dobbel bæreevne</h3>
+        <p class="feat-desc">Dimensjonert for dobbel trykklast per m². Doble lydskruer gir vesentlig høyere bæreevne enn konkurrerende systemer.</p>
+      </div>
+
+      <div class="feat-card reveal d1">
+        <div class="feat-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><line x1="1" y1="1" x2="23" y2="23"/><path d="M9 9v3a3 3 0 005.12 2.12M15 9.34V4a3 3 0 00-5.94-.6"/><path d="M17 16.95A7 7 0 015 12v-2m14 0v2a7 7 0 01-.11 1.23"/></svg>
+        </div>
+        <h3 class="feat-title">Ingen lydoverføring</h3>
+        <p class="feat-desc">Ingen bolt- eller skrufesting nødvendig — eliminerer lydoverføring gjennom konstruksjonen for et stille innemiljø.</p>
+      </div>
+
+      <div class="feat-card reveal d2">
+        <div class="feat-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3 class="feat-title">Rask montering</h3>
+        <p class="feat-desc">Selvbærende bjelke under montering eliminerer behov for kutting av skruer. Raskere framdrift og økt fortjeneste.</p>
+      </div>
+
+      <div class="feat-card reveal d3">
+        <div class="feat-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 22.5A5 5 0 003 19c0-9.94 7-15.5 14-15.5a5 5 0 015 5 2.5 2.5 0 01-5 0"/></svg>
+        </div>
+        <h3 class="feat-title">Miljøvennlig</h3>
+        <p class="feat-desc">Utviklet med miljø i fokus, oppfyller alle gjeldende miljøkrav og miljøstandarder i byggebransjen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SINTEF ══════════════════════════════════════════════ -->
+<section class="sec sintef-sec" id="sintef">
+  <div class="sintef-inner wrap">
+
+    <div class="badge-wrap reveal">
+      <div class="badge">
+        <div class="badge-star">★</div>
+        <div class="badge-sup">SINTEF</div>
+        <div class="badge-num">Test-<br>vinner</div>
+        <div class="badge-label">Rapport 2023:00775</div>
+      </div>
+
+      <table class="meas-table">
+        <thead>
+          <tr>
+            <th>Prøveobjekt</th>
+            <th>Parameter</th>
+            <th>Resultat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>OptiNor systemgulv</td>
+            <td>DLw (trinnlyd)</td>
+            <td class="hi">27 dB</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>CI,D</td>
+            <td class="hi">−12 dB</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>DRw,heavy (luftlyd)</td>
+            <td class="hi">6 dB</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:0.5rem;text-align:center;">
+        Akkreditert iht. NS-EN ISO 10140-1/-2/-3 &amp; NS-EN ISO 717-1/-2
+      </p>
+    </div>
+
+    <div class="reveal d2">
+      <div class="sec-kicker" style="color:var(--g300);">
+        <span style="display:inline-block;width:1.5rem;height:2px;background:var(--g300);margin-right:0.65rem;flex-shrink:0;"></span>
+        Dokumentert kvalitet
+      </div>
+      <h2 class="sec-h sec-h-white">Best på markedet —<br>dokumentert av SINTEF</h2>
+      <p class="sec-p sec-p-muted" style="margin-top:0.5rem;">
+        SINTEF Community, Skandinavias fremste uavhengige forskningsinstitutt,
+        bekreftet i akkrediterte tester at OptiNors system er det beste
+        høydejusterbare lydreduserende gulvsystemet på markedet.
+        Testene ble gjennomført i akustikklaboratoriet i Børrestuveien 3, Oslo.
+      </p>
+
+      <div class="sintef-points">
+        <div class="s-point">
+          <div class="s-check">✓</div>
+          <div class="s-text">
+            <strong>Beste lydreduksjon</strong>
+            27 dB trinnlydforbedring (DLw) — overlegen ytelse bekreftet i alle frekvensområder.
+          </div>
+        </div>
+        <div class="s-point">
+          <div class="s-check">✓</div>
+          <div class="s-text">
+            <strong>Raskest å installere</strong>
+            Fleksibelt system med høy bæreevne og raskest mulig installasjon på byggeplass.
+          </div>
+        </div>
+        <div class="s-point">
+          <div class="s-check">✓</div>
+          <div class="s-text">
+            <strong>Best i klassen totalt</strong>
+            Nummer én rangert basert på samlet ytelse, installasjon og teknisk løsning.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ INSTALLATION ═══════════════════════════════════════ -->
+<section class="sec install-sec" id="installation">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-kicker">Montering</div>
+      <h2 class="sec-h">Enkelt å montere.<br>Raskt og lønnsomt.</h2>
+    </div>
+
+    <div class="install-grid">
+      <div class="step-list">
+        <div class="step reveal">
+          <div class="step-n">01</div>
+          <div class="step-body">
+            <h4>Justerbar CC-avstand</h4>
+            <p>Unik CC-regulering løser ulike montasjeproblemer uten spesialverktøy. Bjelkene justeres på stedet — kun tilgjengelig på OptiNor.</p>
+          </div>
+        </div>
+        <div class="step reveal d1">
+          <div class="step-n">02</div>
+          <div class="step-body">
+            <h4>Selvbærende bjelke</h4>
+            <p>Lydreduserende skruer gjør bjelken selvbærende under montering. Ingen støtte eller kutting av skruer nødvendig.</p>
+          </div>
+        </div>
+        <div class="step reveal d2">
+          <div class="step-n">03</div>
+          <div class="step-body">
+            <h4>Ingen bolt-/skrufesting</h4>
+            <p>Eliminerer lydoverføring gjennom konstruksjonen og forenkler monteringen vesentlig — ingen ekstraarbeid nødvendig.</p>
+          </div>
+        </div>
+        <div class="step reveal d3">
+          <div class="step-n">04</div>
+          <div class="step-body">
+            <h4>Raskere = mer lønnsomt</h4>
+            <p>Summen av fordelene gir raskere framdrift og økt fortjeneste på hvert prosjekt. Systemet betaler seg selv.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec-card reveal d2">
+        <div class="spec-card-title">Tekniske spesifikasjoner</div>
+        <div class="spec-row">
+          <span class="spec-k">Trinnlydforbedring DLw</span>
+          <span class="spec-v">27 dB</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-k">Maks justeringshøyde</span>
+          <span class="spec-v">Opp til 50 cm</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-k">Bæreevne</span>
+          <span class="spec-v">Dobbel last / m²</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-k">CC-avstand</span>
+          <span class="spec-v">Justerbar</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-k">Skrufesting</span>
+          <span class="spec-v">Ikke nødvendig</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-k">Lydkrav (NO/SE)</span>
+          <span class="spec-v">Over C-krav</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-k">Bjelketype</span>
+          <span class="spec-v">Norgips-kompatibel</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-k">Tilleggsutstyr</span>
+          <span class="spec-v">Lavvoltvarme, kuldebro</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-k">Akkreditert prøvemetode</span>
+          <span class="spec-v">NS-EN ISO 10140</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ════════════════════════════════════════════════ -->
+<section class="sec cta-sec" id="contact">
+  <div class="cta-box">
+    <div class="sec-kicker sec-kicker-center reveal">Komme i gang</div>
+    <h2 class="sec-h reveal" style="font-size:clamp(2.1rem,4.5vw,3.4rem);">
+      Klar for Norges beste gulvsystem?
+    </h2>
+    <p class="cta-p reveal d1">
+      Ta kontakt for tilbud, teknisk veiledning og produktinformasjon.
+      Vi hjelper deg å finne den optimale løsningen for ditt prosjekt —
+      enten det er et leilighetsbygg, hotell eller kontorbygg.
+    </p>
+    <div class="cta-btns reveal d2">
+      <a href="mailto:dag@optinor.no" class="btn-lg btn-lg-green">
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Send e-post
+      </a>
+      <a href="tel:+4799000000" class="btn-lg btn-lg-out">
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.7A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09A16 16 0 0015.91 17l.65-.65a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Ring oss
+      </a>
+    </div>
+    <p style="margin-top:2rem;font-size:0.8rem;color:var(--ink3);">
+      Middelthuns gate 25F, 0368 Oslo &nbsp;·&nbsp; OptiNor AS &nbsp;·&nbsp; Dag J. Søndbø
+    </p>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ══════════════════════════════════════════════ -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="foot-logo">
+        <img src="/brand_assets/logo.jpeg" alt="OptiNor" />
+        <p class="foot-tag">
+          OptiNor AS leverer Norges beste høydejusterbare lydreduserende gulvsystem
+          — testet og kåret til best på markedet av SINTEF (rapport 2023:00775).
+        </p>
+      </div>
+      <div>
+        <div class="foot-h">Navigasjon</div>
+        <ul class="foot-links">
+          <li><a href="#about">Om oss</a></li>
+          <li><a href="#features">Produktet</a></li>
+          <li><a href="#sintef">SINTEF-rapport</a></li>
+          <li><a href="#installation">Montering</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="foot-h">Kontakt</div>
+        <ul class="foot-links">
+          <li><a href="mailto:dag@optinor.no">dag@optinor.no</a></li>
+          <li><a href="#">Middelthuns gate 25F</a></li>
+          <li><a href="#">0368 Oslo</a></li>
+          <li><a href="#">Dag J. Søndbø</a></li>
+          <li><a href="#">Oppfinner / Lisenssinnehaver</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2024 OptiNor AS. Alle rettigheter forbeholdt.</span>
+      <span>Org.nr. under registrering</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive: true });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

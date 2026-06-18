@@ -1,0 +1,11 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "puppeteer": "^24.42.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.104.1",
+    "bcryptjs": "^3.0.3",
+    "jsonwebtoken": "^9.0.3"
+  }
+}
