@@ -471,8 +471,8 @@
       overflow: hidden;
     }
     .gallery-header {
-      padding: 5rem var(--pad) 3rem;
-      max-width: var(--max);
+      padding: 7rem 2.5rem 4rem;
+      max-width: 1240px;
       margin: 0 auto;
       display: flex;
       align-items: flex-end;
@@ -513,13 +513,33 @@
       50% { opacity: 1; }
     }
 
+    .gallery-strip-outer {
+      position: relative;
+    }
+    .gallery-strip-outer::before,
+    .gallery-strip-outer::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .gallery-strip-outer::before {
+      left: 0;
+      background: linear-gradient(to right, var(--g900) 0%, transparent 100%);
+    }
+    .gallery-strip-outer::after {
+      right: 0;
+      background: linear-gradient(to left, var(--g900) 0%, transparent 100%);
+    }
+
     .gallery-strip-wrap {
       overflow-x: auto;
       overflow-y: hidden;
       cursor: grab;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
-      padding-bottom: 4rem;
     }
     .gallery-strip-wrap::-webkit-scrollbar { display: none; }
     .gallery-strip-wrap.dragging { cursor: grabbing; }
@@ -528,7 +548,7 @@
       display: flex;
       align-items: center;
       gap: 1.25rem;
-      padding: 0 var(--pad) 0;
+      padding: 0 2.5rem;
       width: max-content;
     }
 
@@ -588,8 +608,8 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0 var(--pad) 4rem;
-      max-width: var(--max);
+      padding: 2.5rem 2.5rem 7rem;
+      max-width: 1240px;
       margin: 0 auto;
     }
     .gp-bar {
@@ -1187,6 +1207,7 @@
     </div>
   </div>
 
+  <div class="gallery-strip-outer">
   <div class="gallery-strip-wrap" id="galleryStrip">
     <div class="gallery-strip">
       <div class="gf" data-lb="0">
@@ -1220,6 +1241,7 @@
         <div class="gf-caption">Ferdig montert parkett over systemet</div>
       </div>
     </div>
+  </div>
   </div>
 
   <div class="gallery-progress">
