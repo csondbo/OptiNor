@@ -526,7 +526,7 @@
 
     .gallery-strip {
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       gap: 1.25rem;
       padding: 0 var(--pad) 0;
       width: max-content;
@@ -535,9 +535,12 @@
     .gf {
       position: relative;
       flex-shrink: 0;
+      width: 520px;
+      height: 380px;
       border-radius: 12px;
       overflow: hidden;
       background: var(--g800);
+      cursor: pointer;
     }
     .gf img {
       display: block;
@@ -547,13 +550,6 @@
       transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
     }
     .gf:hover img { transform: scale(1.04); }
-
-    /* Frame sizes — vary heights for rhythm */
-    .gf-xl { width: 680px; height: 440px; }
-    .gf-lg { width: 480px; height: 360px; }
-    .gf-md { width: 360px; height: 300px; }
-    .gf-sm { width: 280px; height: 240px; }
-    .gf-tall { width: 320px; height: 440px; }
 
     .gf-num {
       position: absolute;
@@ -620,12 +616,107 @@
 
     @media (max-width: 768px) {
       .gallery-drag-hint { display: none; }
-      .gf-xl { width: 86vw; height: 280px; }
-      .gf-lg { width: 68vw; height: 230px; }
-      .gf-md { width: 56vw; height: 200px; }
-      .gf-sm { width: 46vw; height: 180px; }
-      .gf-tall { width: 52vw; height: 280px; }
+      .gf { width: 78vw; height: 240px; }
     }
+
+    /* ─── LIGHTBOX ──────────────────────────────────────────── */
+    .lb {
+      position: fixed;
+      inset: 0;
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .lb.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .lb-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(5, 18, 5, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .lb-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+    .lb-img-wrap {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 40px 120px rgba(0,0,0,0.7);
+    }
+    .lb-img-wrap img {
+      display: block;
+      max-width: 88vw;
+      max-height: 78vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      transform: scale(0.96);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .lb.open .lb-img-wrap img {
+      transform: scale(1);
+    }
+    .lb-caption {
+      margin-top: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.85rem;
+      font-weight: 400;
+      text-align: center;
+      max-width: 560px;
+    }
+    .lb-counter {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: var(--g300);
+      margin-top: 0.4rem;
+      opacity: 0.7;
+    }
+    .lb-close {
+      position: fixed;
+      top: 1.5rem; right: 1.75rem;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+      z-index: 2;
+    }
+    .lb-close:hover { background: rgba(255,255,255,0.16); transform: rotate(90deg); }
+    .lb-close svg { stroke: rgba(255,255,255,0.8); }
+    .lb-prev, .lb-next {
+      position: fixed;
+      top: 50%; transform: translateY(-50%);
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+      z-index: 2;
+    }
+    .lb-prev { left: 1.5rem; }
+    .lb-next { right: 1.5rem; }
+    .lb-prev:hover { background: rgba(255,255,255,0.16); transform: translateY(-50%) translateX(-2px); }
+    .lb-next:hover { background: rgba(255,255,255,0.16); transform: translateY(-50%) translateX(2px); }
+    .lb-prev svg, .lb-next svg { stroke: rgba(255,255,255,0.8); }
 
     /* ─── CTA ────────────────────────────────────────────── */
     .cta-sec { background: var(--white); text-align: center; }
@@ -1098,32 +1189,32 @@
 
   <div class="gallery-strip-wrap" id="galleryStrip">
     <div class="gallery-strip">
-      <div class="gf gf-xl">
+      <div class="gf" data-lb="0">
         <img src="/brand_assets/sintef_photos/img-007.jpg" alt="Bjelkesystem med justeringsskruer" />
         <div class="gf-num">01</div>
         <div class="gf-caption">Bjelkesystem med justeringsskruer – helhetsoversikt fra SINTEF-laboratoriet</div>
       </div>
-      <div class="gf gf-tall">
+      <div class="gf" data-lb="1">
         <img src="/brand_assets/sintef_photos/img-005.jpg" alt="Lydreduserende justeringsskrue" />
         <div class="gf-num">02</div>
         <div class="gf-caption">Detaljbilde av den lydreduserende justeringsskruen</div>
       </div>
-      <div class="gf gf-md">
+      <div class="gf" data-lb="2">
         <img src="/brand_assets/sintef_photos/img-004.jpg" alt="Isolasjon mellom bjelker" />
         <div class="gf-num">03</div>
         <div class="gf-caption">Isolasjon montert mellom bjelkene</div>
       </div>
-      <div class="gf gf-lg">
+      <div class="gf" data-lb="3">
         <img src="/brand_assets/sintef_photos/img-002.jpg" alt="Gulvplater lagt" />
         <div class="gf-num">04</div>
         <div class="gf-caption">Gulvplater lagt over bjelkesystemet</div>
       </div>
-      <div class="gf gf-sm">
+      <div class="gf" data-lb="4">
         <img src="/brand_assets/sintef_photos/img-001.jpg" alt="Montering i gang" />
         <div class="gf-num">05</div>
         <div class="gf-caption">Montering i gang</div>
       </div>
-      <div class="gf gf-lg">
+      <div class="gf" data-lb="5">
         <img src="/brand_assets/sintef_photos/img-000.jpg" alt="Ferdig montert parkett" />
         <div class="gf-num">06</div>
         <div class="gf-caption">Ferdig montert parkett over systemet</div>
@@ -1136,6 +1227,25 @@
     <span class="gp-label" id="galleryLabel">01 / 06</span>
   </div>
 </section>
+
+<!-- ═══ LIGHTBOX ═══════════════════════════════════════════ -->
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <div class="lb-backdrop" id="lbBackdrop"></div>
+  <button class="lb-close" id="lbClose" aria-label="Lukk">
+    <svg width="18" height="18" fill="none" stroke-width="2.2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <button class="lb-prev" id="lbPrev" aria-label="Forrige">
+    <svg width="18" height="18" fill="none" stroke-width="2.2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="lb-next" id="lbNext" aria-label="Neste">
+    <svg width="18" height="18" fill="none" stroke-width="2.2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+  <div class="lb-inner">
+    <div class="lb-img-wrap"><img id="lbImg" src="" alt="" /></div>
+    <p class="lb-caption" id="lbCaption"></p>
+    <span class="lb-counter" id="lbCounter"></span>
+  </div>
+</div>
 
 <!-- ═══ CTA ════════════════════════════════════════════════ -->
 <section class="sec cta-sec" id="contact">
@@ -1217,6 +1327,51 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+  // Lightbox
+  const lbFrames = Array.from(document.querySelectorAll('.gf[data-lb]'));
+  const lb = document.getElementById('lb');
+  const lbImg = document.getElementById('lbImg');
+  const lbCaption = document.getElementById('lbCaption');
+  const lbCounter = document.getElementById('lbCounter');
+  let lbIdx = 0;
+
+  function lbOpen(idx) {
+    lbIdx = idx;
+    const frame = lbFrames[idx];
+    lbImg.src = frame.querySelector('img').src;
+    lbImg.alt = frame.querySelector('img').alt;
+    lbCaption.textContent = frame.querySelector('.gf-caption').textContent;
+    lbCounter.textContent = String(idx + 1).padStart(2,'0') + ' / ' + String(lbFrames.length).padStart(2,'0');
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function lbClose() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function lbGo(dir) {
+    lbIdx = (lbIdx + dir + lbFrames.length) % lbFrames.length;
+    lbOpen(lbIdx);
+  }
+
+  let wasDragged = false;
+  lbFrames.forEach(frame => {
+    frame.addEventListener('click', e => {
+      if (wasDragged) return;
+      lbOpen(parseInt(frame.dataset.lb));
+    });
+  });
+  document.getElementById('lbClose').addEventListener('click', lbClose);
+  document.getElementById('lbBackdrop').addEventListener('click', lbClose);
+  document.getElementById('lbPrev').addEventListener('click', () => lbGo(-1));
+  document.getElementById('lbNext').addEventListener('click', () => lbGo(1));
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') lbClose();
+    if (e.key === 'ArrowLeft') lbGo(-1);
+    if (e.key === 'ArrowRight') lbGo(1);
+  });
+
   // Gallery drag-scroll
   const strip = document.getElementById('galleryStrip');
   const fill = document.getElementById('galleryFill');
@@ -1224,19 +1379,25 @@
   const total = 6;
 
   if (strip) {
-    let isDown = false, startX, scrollLeft;
+    let isDown = false, startX, scrollLeft, moved = false;
 
     strip.addEventListener('mousedown', e => {
-      isDown = true;
+      isDown = true; moved = false;
       strip.classList.add('dragging');
       startX = e.pageX - strip.offsetLeft;
       scrollLeft = strip.scrollLeft;
     });
     strip.addEventListener('mouseleave', () => { isDown = false; strip.classList.remove('dragging'); });
-    strip.addEventListener('mouseup', () => { isDown = false; strip.classList.remove('dragging'); });
+    strip.addEventListener('mouseup', () => {
+      isDown = false;
+      strip.classList.remove('dragging');
+      wasDragged = moved;
+      setTimeout(() => { wasDragged = false; }, 0);
+    });
     strip.addEventListener('mousemove', e => {
       if (!isDown) return;
       e.preventDefault();
+      moved = true;
       const x = e.pageX - strip.offsetLeft;
       strip.scrollLeft = scrollLeft - (x - startX) * 1.2;
     });
