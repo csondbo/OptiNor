@@ -364,6 +364,13 @@
       background: radial-gradient(circle at 38% 38%, rgba(47,170,47,0.16), rgba(47,170,47,0.04));
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       text-align: center; padding: 2rem; position: relative;
+      cursor: pointer; text-decoration: none;
+      transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+    }
+    .badge:hover {
+      border-color: rgba(47,170,47,0.65);
+      background: radial-gradient(circle at 38% 38%, rgba(47,170,47,0.26), rgba(47,170,47,0.08));
+      transform: scale(1.04);
     }
     .badge::after {
       content: ''; position: absolute; inset: -10px;
@@ -1048,12 +1055,12 @@
   <div class="sintef-inner wrap">
 
     <div class="badge-wrap reveal">
-      <div class="badge">
+      <a class="badge" href="/brand_assets/Sintef - test.pdf" target="_blank" rel="noopener" title="Åpne SINTEF-rapport 2023:00775">
         <div class="badge-star">★</div>
         <div class="badge-sup">SINTEF</div>
         <div class="badge-num">Testet</div>
         <div class="badge-label">Rapport 2023:00775</div>
-      </div>
+      </a>
 
       <table class="meas-table">
         <thead>
