@@ -155,7 +155,8 @@ http.createServer(async (req, res) => {
   }
 
   // ── Static files ────────────────────────────────────────
-  let filePath = path.join(__dirname, url.pathname === '/' ? 'index.html' : url.pathname);
+  const decodedPath = decodeURIComponent(url.pathname);
+  let filePath = path.join(__dirname, decodedPath === '/' ? 'index.html' : decodedPath);
 
   // Block direct access to config/data files
   const blocked = ['posts.json', 'blog-config.json'];
@@ -163,7 +164,7 @@ http.createServer(async (req, res) => {
     res.writeHead(403); return res.end('Forbidden');
   }
 
-  const ext = path.extname(filePath);
+  const ext = path.extname(filePath).toLowerCase();
   const contentType = MIME[ext] || 'text/plain';
 
   fs.readFile(filePath, (err, data) => {
