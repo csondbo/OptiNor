@@ -90,6 +90,12 @@
     .nav-cta:hover { background: var(--g800) !important; transform: translateY(-1px); }
 
     .nav-dropdown { position: relative; }
+    .nav-dropdown::after {
+      content: '';
+      position: absolute;
+      top: 100%; left: 50%; transform: translateX(-50%);
+      width: 230px; height: 0.9rem;
+    }
     .nav-dropdown-trigger {
       display: flex; align-items: center; gap: 0.35rem;
       background: none; border: none; cursor: pointer;
