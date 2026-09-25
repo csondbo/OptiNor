@@ -1,0 +1,137 @@
+================================================================================
+SORA VIDEO GENERATION PROMPT — OPTINOR INSTALLATION VIDEO
+================================================================================
+
+--------------------------------------------------------------------------------
+VIDEO BRIEF (what the finished video must show)
+--------------------------------------------------------------------------------
+Create a realistic installation video for the OptiNor height-adjustable
+sound-reducing floor system. The video should show a carpenter, in a normal
+indoor construction setting, performing the following installation sequence
+in order:
+
+  1. The carpenter installs the sound-reducing screw into the substrate.
+     The substrate the screw is fastened into is CONCRETE.
+  2. The carpenter makes height/level adjustments to the screw (turning it
+     to raise or lower it so the steel rail sits level and at the correct
+     height).
+  3. The carpenter lays insulation between the steel rails/joists.
+  4. The carpenter lays parquet flooring on top, finishing the installation.
+
+The tone should be practical and professional — a clean, well-lit
+construction/renovation environment, close-up shots of hands working with
+the screw, the adjustment motion, the insulation being placed, and the
+parquet boards being laid down, followed by a wider shot of the finished
+floor. The video should communicate precision, ease of installation, and a
+solid, professional result.
+
+--------------------------------------------------------------------------------
+PRODUCT DESCRIPTION AND BACKGROUND (for context — translated reference
+material from the product presentation and the SINTEF test report)
+--------------------------------------------------------------------------------
+
+=== FROM THE PRODUCT PRESENTATION ===
+
+OptiNor — Sound-reducing Floor System
+
+Professional background:
+Since 1999, the inventor has represented Swedish factories in Norway in the
+field of adjustable sound-reducing floor systems, selling over 500,000 m²,
+including the Norwegian government's VIP hotel in Inkognitogata, Oslo — the
+inventor's highest-prestige project. Until 2017, projects were carried out
+across all of Norway, alongside courses and presentations for contractors,
+architects, acousticians and builders, both governmental and private.
+
+From 2017 onward, development focused on new products. After a long period
+of development and testing (including a pandemic in between), the current
+product was finalized, developed in cooperation with the Technical Manager
+at Norgips Norway AS, with quality manufacturers in Sweden producing the
+various parts of the system.
+
+What is behind the product:
+  - The system meets the current C-requirements in Norway and Sweden by a
+    good margin
+  - The system is optimized for installation
+  - The system solves the entry-height challenges of different floors
+  - The system complies with environmental concerns and requirements
+
+Benefits of installation:
+  - Solves the need for centre-to-centre (CC) distance regulation in a
+    simple way, resolving various assembly challenges
+  - Designed for double compressive load per m²
+  - The system's sound-reducing screws allow the joist to be self-standing
+    during assembly — no need to cut excess screw length
+  - The combined benefits result in faster installation and increased
+    profit
+
+Facts:
+  - The best height-adjustable sound-reducing floor system on the market
+  - Test winner based on the SINTEF report
+  - Best in installation — flexible, high load capacity, quick installation
+  - Adjustable CC distance — the only one on the market
+  - Adapted for double sound screws, giving greater load capacity
+  - No screw/bolt fastening required, resulting in no sound transmission
+
+Additional info:
+The joist of the system is the same as in Norgips' ceiling system, which
+results in additional sales for Norgips on projects. Ongoing development
+includes a screw extender with total height up to 50 cm, and a low-voltage
+heating base for parquet flooring with cold-bridge stops.
+
+— Dag J. Søndbø, Inventor / License holder, OptiNor AS
+
+=== FROM THE SINTEF TEST REPORT (2023:00775) ===
+
+Report: Laboratory measurement of impact-sound and airborne-sound
+improvement for a system floor with parquet flooring.
+Author: Gjermund Holøyen, SINTEF Community, Buildings and Infrastructure.
+Date: 2023-08-25. Client: Optinor AS. Test method: NS-EN ISO 10140-1, -2,
+-3 (accredited), rated per NS-EN ISO 717-1 and 717-2. Test location:
+SINTEF Community's acoustics laboratory, Børrestuveien 3, Oslo.
+
+Summary of measured results:
+  Test object   DLw     CI,D     DRw,heavy   D(Rw+C)heavy   D(Rw+C50-5000)heavy
+  OptiNor       27 dB   -12 dB   6 dB        5 dB           5 dB
+
+Description of the test specimen:
+The test specimen is a height-adjustable sound-damping floor system
+consisting of a steel U-profile, 59 mm wide and 27 mm high, a sound-
+reducing screw (Ø 26 mm) with external threads and a damping pad at the
+base, plus a screw holder for one or two sound screws. The damping pad is
+made of ethylene-propylene rubber (EPDM), 21 mm in diameter and 15 mm high.
+The screw and screw holder are made of PA6+30GF plastic.
+
+During testing, one sound screw was used per screw holder, and the
+distance between the reference deck (concrete) and the top of the steel
+rails was approximately 11 cm. Between the rails, 5 cm of Glava mineral
+wool insulation was filled in, and 5 cm boards of Hunton Nativo wood-fibre
+insulation were placed along the sides, protruding slightly above the
+rails. On top of the rails, 22 mm chipboard/particleboard flooring was
+laid, level with the top of the wood-fibre boards. Between the
+particleboard and the parquet, an approximately 2 mm thick foamed-PE
+parquet underlay was placed, and the joint between the parquet and the
+surrounding frame of the standard deck was sealed with tape.
+
+Conclusion:
+SINTEF Community, on behalf of Optinor AS, measured impact-sound and
+airborne-sound improvement in the laboratory for the OptiNor system floor.
+Measurements were performed in accordance with NS-EN ISO 10140-1, -2 and
+-3. Single-number values were calculated in accordance with NS-EN ISO
+717-1 and -2. Measured impact-sound improvement was 27 dB, and measured
+airborne-sound improvement was 6 dB.
+
+Photo documentation captions from the report (Appendix A), describing the
+installation sequence that was tested:
+  - Fig. A.1: Completed test setup
+  - Fig. A.2: Foam-plastic parquet underlay
+  - Fig. A.3: Particleboard layer
+  - Fig. A.4: The particleboard sits flush with the wood-fibre insulation
+    along the edge
+  - Fig. A.5: Mineral wool was placed between the rails
+  - Fig. A.6: Sound screw, screw holder and damping pad
+  - Fig. A.7: Approx. 11 cm to the top of the rails
+  - Fig. A.8: The rail system fully assembled
+
+--------------------------------------------------------------------------------
+END OF PROMPT
+--------------------------------------------------------------------------------
