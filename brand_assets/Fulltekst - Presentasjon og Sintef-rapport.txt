@@ -1,0 +1,668 @@
+================================================================================
+FULLTEKST FRA TO DOKUMENTER
+================================================================================
+Dette dokumentet inneholder all tekst hentet fra:
+  1. Presentasjon engelsk.pptx
+  2. Sintef - test.pdf (Prøvingsrapport 2023:00775)
+
+Bildene fra begge dokumentene er lagt i undermapper i brand_assets/:
+  - "bilder fra presentasjon/"      (6 bilder, hvorav 1 ikke kunne konverteres — se note nederst)
+  - "bilder fra sintef-rapport/"    (30 bilder/figurer/diagrammer)
+
+================================================================================
+DEL 1 — PRESENTASJON ENGELSK.PPTX
+================================================================================
+
+--------------------------------------------------------------------------------
+SLIDE 1
+--------------------------------------------------------------------------------
+OptiNor
+Sound-reducing Floor System
+
+--------------------------------------------------------------------------------
+SLIDE 2 — Resume of my professional experience and development history
+--------------------------------------------------------------------------------
+Since 1999 I have represented Swedish factories in Norway in the field of
+adjustable sound-reducing floor systems.
+
+I have sold over 500,000m2 and the Norwegian government's ViP hotel in
+Inkognitogata in Oslo ranks as my highest prestige project.
+
+In the period until 2017, I had projects all over Norway from the south to
+the north, as well as countless courses and presentations regarding the
+building traditions of; Contractors, Architects, Acousticians and Builders,
+both governmental and private.
+
+--------------------------------------------------------------------------------
+SLIDE 3 — Resume of my professional experience and development history
+--------------------------------------------------------------------------------
+From 2017 until today, I have concentrated on developing new products.
+
+After a long period of development and testing, with a pandemic in between,
+I have come up with today's product.
+
+During this time, I have also developed a good relationship with the
+Technical Manager at Norgips Norway AS.
+
+I have also found quality manufacturers in Sweden, who will produce the
+various parts of the system.
+
+--------------------------------------------------------------------------------
+SLIDE 4 — What are the elements behind the product?
+--------------------------------------------------------------------------------
+Through acquired expertise over many years, I have a strong sense of the
+qualities that a height-adjustable sound-reducing floor system should have.
+
+  - The system will meet the current C-requirements in Norway and Sweden
+    by a good margin
+  - The system should also be optimal for installation
+  - The system will solve the entry heights of the various floors
+  - The system must comply with environmental concerns and requirements
+
+--------------------------------------------------------------------------------
+SLIDE 5 — Benefits of installation
+--------------------------------------------------------------------------------
+  - The system solves the need for CC distance regulation in a simple way,
+    which solves various assembly challenges
+  - The system is designed for double compressive loads per m2
+  - The system's sound-reducing screws allow the joist to be self-standing
+    during assembly. There is no need for cutting the excess screw
+  - The sum of the benefits results in faster installation and increased
+    profits
+
+--------------------------------------------------------------------------------
+SLIDE 6 — Facts
+--------------------------------------------------------------------------------
+  - The best height-adjustable sound-reducing floor system on the market
+  - Test winner based on SINTEF report
+  - Best in installation – flexible, high load capacity, quick installation
+
+--------------------------------------------------------------------------------
+SLIDE 7 — Test winner
+--------------------------------------------------------------------------------
+(Ingen ytterligere brødtekst — tittel-slide)
+
+--------------------------------------------------------------------------------
+SLIDE 8 — Best in installation
+--------------------------------------------------------------------------------
+  - Adjustable CC distance – the only one on the market!
+  - Adapted for double sound screws, which provides greater load capacity!
+  - No screw/bolt fastening required — gives no sound transmission!
+
+--------------------------------------------------------------------------------
+SLIDE 9 — Additional info
+--------------------------------------------------------------------------------
+The joist of the system is the same as in Norgips' ceiling system. This
+results in a doubling of sales for Norgips in projects.
+
+I am constantly working on developing the system to maximize its qualities.
+This includes;
+  - Screw extender with total height up to 50cm
+  - Low-voltage heating base for parquet flooring and cold bridge stops
+
+--------------------------------------------------------------------------------
+SLIDE 10 — Avslutning
+--------------------------------------------------------------------------------
+Thanks for your attention, in the hope of good future cooperation!
+
+Best regards
+Dag J. Søndbø
+Inventor / License holder — OptiNor AS
+
+
+================================================================================
+DEL 2 — SINTEF - TEST.PDF  (Prøvingsrapport 2023:00775)
+================================================================================
+
+--------------------------------------------------------------------------------
+FORSIDE / METADATA
+--------------------------------------------------------------------------------
+2023:00775 - Fortrolig
+
+Prøvingsrapport
+Måling av trinnlyd- og luftlydforbedring på systemgulv
+Laboratoriemåling av trinnlyd- og luftlydforbedring på systemgulv med parkett
+
+Forfatter(e): Gjermund Holøyen
+SINTEF Community, Bygninger og installasjoner
+Dato: 2023-08-25
+
+SINTEF Community
+Postadresse: Postboks 124 Blindern, 0314 Oslo
+Sentralbord: 40005100
+E-post: info@sintef.no
+Foretaksregister: NO 919 303 808 MVA
+
+Versjon: 1                              Dato: 2023-08-25
+
+Oppdragsgiver(e): Optinor AS            Oppdragsgivers ref.: Dag Søndbø
+Adresse: Middelthuns gate 25F, 0368 Oslo
+
+Prøvemetode:      NS-EN ISO 10140-2, NS-EN ISO 10140-3 (akkreditert)
+Angitt ytelse:    NS-EN ISO 10140-1, NS-EN ISO 717-1, NS-EN ISO 717-2
+Bygningsdel:      Overgulv
+Emneord:          Laboratorieundersøkelse, trinnlydforbedring,
+                  luftlydforbedring, systemgulv, overgulv
+
+Prosjektnummer:              102025049-31
+Antall sider og vedlegg:     7 + 17
+Prøveobjekt:                 Systemgulv
+Prøveobjekt mottatt:         2023-05-30
+Prøveprogram:                NS-EN ISO 10140-1, -2, -3 / KS 14-05-48-513, -514, -515
+Prøvested:                   Børrestuveien 3, Oslo
+Prøvedato:                   2023-05-30
+
+Sammendrag:
+SINTEF Community har på oppdrag fra Optinor AS målt trinnlyd- og
+luftlydforbedring i laboratorium for systemgulvet OptiNor. Målingene er
+utført i samsvar med NS-EN ISO 10140-1, -2 og -3. Veide ett-tallsverdier,
+trinnlyd- og luftlydforbedring er beregnet i samsvar med NS-EN ISO 717-1 og
+-2. Alle målinger er gjennomført i SINTEF Communitys akustikklaboratorium i
+Børrestuveien 3, Oslo.
+
+Målt trinnlyd- og luftlydforbedring:
+  Prøveobjekt   DLw     CI,D    DRw,heavy   D(Rw+C)heavy   D(Rw+C50-5000)heavy
+  OptiNor       27 dB   -12 dB  6 dB        5 dB           5 dB
+
+Prøveresultatene gjelder kun de objekter som er prøvd.
+
+Utarbeidet av:   Gjermund Holøyen
+Kontrollert av:  Sigurd Hveem
+Godkjent av:     Monica Strøm Nodland
+
+Rapportnummer: 2023:00775            Gradering: Fortrolig
+
+Rapporten er oppdragsgivers eiendom og kan ikke uten vedkommendes skriftlige
+tillatelse overlates til tredjepart. Uten SINTEF sin skriftlige godkjenning
+kan rapporten kun reproduseres i sin helhet.
+
+Historikk:
+  Versjon 1 — 2023-08-25 — Prøvingsrapport
+
+--------------------------------------------------------------------------------
+INNHOLDSFORTEGNELSE
+--------------------------------------------------------------------------------
+1  Innledning ........................................................ 4
+2  Lydlaboratoriet ................................................... 4
+3  Akkreditert prøving ............................................... 4
+4  Prøveobjekt ........................................................ 5
+   4.1 Beskrivelse og monteringsdetaljer .............................. 5
+5  Målinger ........................................................... 5
+   5.1 Usikkerhet ..................................................... 5
+   5.2 Sporbarhet ..................................................... 5
+   5.3 Avvik .......................................................... 5
+6  Resultater ......................................................... 6
+7  Konklusjon ......................................................... 7
+
+Bilag/vedlegg:
+A  Fotodokumentasjon ................................................. 8
+B  Måleutstyr ........................................................ 12
+C  Usikkerhet ........................................................ 13
+D  Lydlaboratoriet ................................................... 15
+E  Måleblader ........................................................ 20
+
+--------------------------------------------------------------------------------
+1  INNLEDNING
+--------------------------------------------------------------------------------
+SINTEF Community har på oppdrag fra Optinor AS målt trinnlyd- og
+luftlydforbedring i laboratorium for et systemgulv. Oppdragsgiver ønsker å
+bruke rapporten til dokumentasjon. Målingene er utført i samsvar med NS-EN
+ISO 10140-1, -2 og -3. Ett-tallsverdier, trinnlyd- og luftlydforbedring er
+beregnet i samsvar med NS-EN ISO 717-1 og -2.
+
+Dag Søndbø har vært kontaktperson for Optinor AS. Gjermund Holøyen har vært
+kontaktperson for SINTEF Community. Målingene er utført av Gjermund
+Holøyen.
+
+--------------------------------------------------------------------------------
+2  LYDLABORATORIET
+--------------------------------------------------------------------------------
+Akustikklaboratoriene i SINTEF Community er lokalisert i Børrestuveien 3 i
+Oslo. Det er to lydlaboratorier; ett for store fullskala bygningsdeler og
+ett for små bygningsdeler som dører, vinduer og ventiler.
+
+Akustikklaboratoriet for store bygningsdeler ligger i prøvehallen og ble
+bygget i 2002. Laboratoriet oppfyller kravene til lydlaboratorier i NS-EN
+ISO 10140 (Akustikk – Laboratoriemåling av lydisolasjon for bygningsdeler)
+og NS-EN ISO 354 (Akustikk – Måling av lydabsorpsjon i klangrom).
+Informasjon om sporbarhet av måleutstyr, forventet usikkerhet og målsatte
+tegninger av prøveåpningen(e), er lagt ved rapporten i vedlegg B, C og D.
+
+Laboratoriet for store bygningsdeler er bygget med rom–i–rom og består av
+to senderrom og ett kombinert mottakerrom og klangrom for henholdsvis
+prøving av vegger og etasjeskillere. Alle tre rom er strukturelt adskilt
+fra hverandre. Mellom senderrommene og klangrommet er det prøveåpninger.
+Se vedlegg D for informasjon om prøveåpningene.
+
+Klangrommet er bygd som kombinert mottakerrom for lydisolasjonsmålinger og
+klangrom for lydabsorpsjonsmålinger. Omsluttende flater er utført i 200 mm
+plasstøpt betong, og det er doble ståldører inn i rommet. Romvolum for
+klangrommet er 200 m3. Etterklangstiden reguleres med lydabsorbenter, og
+tilpasses til å tilfredsstille kravene til etterklangstid ved måling av en
+lydisolasjon eller lydabsorpsjon.
+
+Senderrommet for dekker og horisontalt orienterte bygningsdeler er bygget
+som et teleskophus med omsluttende flater av 150 mm massivtre. Vegger og
+tak for deler av rommet kan trekkes tilbake slik at prøveobjekter kan
+heises ned i prøveåpningen med traverskran. Romvolum for teleskophuset er
+56 m3.
+
+--------------------------------------------------------------------------------
+3  AKKREDITERT PRØVING
+--------------------------------------------------------------------------------
+SINTEF Communitys akustikklaboratorium er akkreditert for prøving av Norsk
+akkreditering (NA Test 107). Norsk akkreditering definerer en akkreditering
+som: "Akkreditering er en offisiell anerkjennelse av en organisasjons
+kompetanse og evne til å utføre angitte oppgaver i samsvar med gitte krav."
+Norsk akkreditering er Norges representant i europeiske og internasjonale
+samarbeid som European cooperation for Accreditation (EA), International
+Laboratory Accreditation Cooperation (ILAC) og International Accreditation
+Forum (IAF). For mer informasjon, se www.akkreditert.no.
+
+Dette betyr at SINTEF Community og lydlaboratoriet tilfredsstiller alle
+krav til NS-EN ISO 17025. Akkrediteringen omfatter prøving av
+luftlydisolasjon, trinnlydnivå og -forbedring etter NS-EN ISO 10140-serien
+og lydabsorpsjon etter NS-EN ISO 354.
+
+Formålet med akkrediteringsordningen er todelt. En akkreditering betyr at
+SINTEF Community foretar målinger med høy kvalitet, og stiller krav til
+hver enkelt operatørs kompetanse. Resultatene er sporbare, repeterbare og
+reproduserbare. Det andre formålet er at målinger utført hos SINTEF
+Community kan benyttes som produktdokumentasjon til SINTEF Teknisk
+Godkjenning eller andre europeiske godkjenningsordninger. Målinger utført
+hos en europeisk akkreditert institusjon anerkjennes ofte, men ikke alltid,
+av andre lands godkjenningsordninger.
+
+--------------------------------------------------------------------------------
+4  PRØVEOBJEKT
+--------------------------------------------------------------------------------
+Prøveobjektet ankom akustikklaboratoriet 30. mai 2023, og ble lagret
+montert og prøvet samme dag. All montering ble gjennomført av
+oppdragsgiver.
+
+4.1  Beskrivelse og monteringsdetaljer
+Prøveobjektet er et høydejustert lyddempende gulvsystem som består av en
+U-profil i stål med bredde 59 mm og høyde 27 mm, lydskrue Ø 26 mm med
+utvendige gjenger og dempepute i bunnen, samt skrueholder for en og to
+lydskruer. Dempeputa består av etylen-propylen-gummi (EPDM), og har
+diameter 21 mm og høyde 15 mm. Lydskrue og skrueholder er i plast av typen
+PA6+30GF.
+
+Under prøvingen ble det benyttet én lydskrue per skrueholder og avstanden
+mellom referansedekket og toppen av stålskinnene var ca. 11 cm. Mellom
+skinnene ble det fylt opp med 5 cm Glava, og på sidene ble det lagt 5 cm
+plater av Hunton Nativo trefiberisolasjon, stikkende litt i overkant av
+skinnene. Oppå skinnene ble det lagt 22 mm gulvspon, som da kom i flukt med
+toppen av trefiberplatene. Mellom sponplatene og parketten ble det lagt et
+ca. 2 mm tykt parkettunderlag av skummet PE, og det ble tettet med tape
+mellom parketten og omramningen rundt standarddekket.
+
+Bilder fra prøvingen er gitt i vedlegg A.
+
+--------------------------------------------------------------------------------
+5  MÅLINGER
+--------------------------------------------------------------------------------
+Målinger er utført i samsvar med NS-EN ISO 10140-1, -2, -3 og SINTEF
+Communitys prosedyre KS 14-05-48-513, -514 og -515.
+
+5.1  Usikkerhet
+Usikkerheter for målingene er lagt ved i vedlegg C. Usikkerhet for
+sammenligning av måleresultater fra SINTEF mot resultater fra andre
+laboratorier er gitt som standard usikkerhet for reproduserbarhet i
+henhold til NS-EN ISO 12999-1. Verdiene er basert på variasjonen i
+måleresultater der en rekke produkter er målt ved flere laboratorier.
+
+Usikkerhet for sammenligning av måleresultater fra SINTEF er gitt som
+standard usikkerhet for repeterbarhet.
+
+5.2  Sporbarhet
+En liste med oversikt over brukt måleutstyr er lagt ved i vedlegg B.
+
+5.3  Avvik
+Det ble ikke foretatt avvik fra målestandarden.
+
+--------------------------------------------------------------------------------
+6  RESULTATER
+--------------------------------------------------------------------------------
+Måleresultatene er oppsummert i tabellform i Tabell 1 og Tabell 2. Grafisk
+fremstilling av måleresultatene i tredjedelsoktavbånd er presentert i
+Figur 1 og Figur 2. Måledatablad er lagt ved i vedlegg E.
+
+Tabell 1: Veid trinnlydforbedring, veid normalisert trinnlydnivå og
+spektrumkorreksjoner i samsvar med NS-EN ISO 10140-1 og NS-EN ISO 717-2.
+Prøveobjektet er montert som dempesjikt mellom 140 mm betong og 14 mm
+parkett.
+
+  Prøveobjekt   Måleblad         DLw    CI,D    Ln,w   CI    CI,50-2500
+  OptiNor       102025049-31-1   27 dB  -12 dB  49 dB  1 dB  3 dB
+                102025049-31-2
+
+Tabell 2: Veid luftlydforbedring, veid luftlydreduksjon og
+spektrumkorreksjoner i samsvar med NS-EN ISO 10140-1 og NS-EN ISO 717-1.
+Prøveobjektet er montert som dempesjikt mellom 140 mm betong og 14 mm
+parkett.
+
+  Prøveobjekt   Måleblad          DRw,heavy  D(Rw+C)heavy  D(Rw+C50-5000)heavy  Rw     C50-5000
+  OptiNor       102025049-31-3    6 dB       5 dB          5 dB                 54 dB  -1 dB
+                102025049-31-4
+
+Figur 1: Målt normalisert trinnlydnivå og trinnlydforbedring for OptiNor,
+samt målt normalisert trinnlydnivå for referansedekket. (Se bilde i
+"bilder fra sintef-rapport/")
+
+Figur 2: Målt luftlydreduksjon og luftlydforbedring for OptiNor, samt målt
+luftlydreduksjon for referansedekket. (Se bilde i "bilder fra
+sintef-rapport/")
+
+--------------------------------------------------------------------------------
+7  KONKLUSJON
+--------------------------------------------------------------------------------
+SINTEF Community har på oppdrag fra Optinor AS målt trinnlyd- og
+luftlydforbedring i laboratorium for systemgulvet OptiNor. Målingene er
+utført i samsvar med NS-EN ISO 10140-1, -2 og -3. Ett-tallsverdier,
+trinnlyd- og luftlydforbedring er beregnet i samsvar med NS-EN ISO 717-1 og
+-2. Målt trinnlydforbedring var 27 dB og målt luftlydforbedring 6 dB.
+
+--------------------------------------------------------------------------------
+VEDLEGG A — FOTODOKUMENTASJON
+--------------------------------------------------------------------------------
+(Bildene er lagt i "bilder fra sintef-rapport/")
+
+Figur A.1: Prøveoppsett ferdig bygget
+Figur A.2: Parkettunderlag av skumplast
+Figur A.3: Sponplatelag
+Figur A.4: Sponplatene går i flukt med trefiberisolasjonen langs kanten
+Figur A.5: Det ble lagt mineralull mellom skinnene
+Figur A.6: Lydskrue, lydskruholder og dempepute
+Figur A.7: Ca. 11 cm til toppen av skinnene
+Figur A.8: Skinnesystemet ferdig bygget
+
+--------------------------------------------------------------------------------
+VEDLEGG B — MÅLEUTSTYR
+--------------------------------------------------------------------------------
+Tabell B.1: Oversikt over benyttet måleutstyr
+
+  Utstyr          Modell    Serienummer  Utstyrsnummer  Kalibreringsdato
+  Analysator      Nor850    8501175      3801           15.02.2022
+  Hammerverk      Nor277    20433        3654           08.06.2021
+  Forforsterker   Nor1201   30566        3656           18.02.2022
+  Mikrofon        Nor1220   35058        3661           14.02.2022
+  Forforsterker   Nor1201   30519        3666           18.02.2022
+  Mikrofon        Nor1220   15672        3794           14.02.2022
+  Kalibrator      Nor1251   17365        3799           14.02.2022
+  Forsterker      Nor280    2803891      5201           14.02.2022
+  Høyttaler       Nor270    30762        10558          14.02.2022
+  Mikrofonbom     Nor265    29337        5184           14.02.2022
+
+--------------------------------------------------------------------------------
+VEDLEGG C — USIKKERHET
+--------------------------------------------------------------------------------
+Tabell C.1: Beskrivelse av standardavvik og usikkerhet for måling av
+trinnlydnivå og trinnlydforbedring
+
+  Usikkerhet          Symbol  Beskrivelse
+  Repeterbarhet       σr      Forventet standardavvik ved gjentatte
+                              målinger hos SINTEF
+  Reproduserbarhet    σR      Forventet standardavvik for målinger utført
+                              ved ulike laboratorier
+  Usikkerhet          U       Utvidet usikkerhet i måleresultat med 95 %
+                              konfidensintervall:
+                              Ln,w = Ln,w,målt ± Ur
+                              eller ΔLw = ΔLw,målt ± UR
+
+Standardavvik for henholdsvis repeterbarhet og reproduserbarhet etter
+NS-EN ISO 12999-1 for normalisert trinnlydnivå, Ln (målt etter NS-EN ISO
+10140-3), og trinnlydforbedring, DL (målt etter NS-EN ISO 10140-1), er
+gitt i Tabell C.2 og Tabell C.3. NS-EN ISO 12999-1:2020 angir ikke data
+for reproduserbarhet, sR, for normalisert trinnlydnivå eller
+repeterbarhet, sr, for trinnlydforbedring.
+
+Tabell C.2: Standardavvik for repeterbarhet/reproduserbarhet og utvidede
+usikkerheter etter NS-EN ISO 12999-1 — normalisert trinnlydnivå Ln (ISO
+10140-3) og trinnlydforbedring ΔL (ISO 10140-1)
+
+  Frekvens [Hz]   Ln repet. sr [dB]  Ln usikkerhet Ur [dB]  DL reprod. sR [dB]  DL usikkerhet UR [dB]
+  50              1,5                2,9                    1,4                  2,7
+  63              1,4                2,7                    1,3                  2,5
+  80              1,3                2,5                    1,2                  2,4
+  100             1,2                2,4                    1,1                  2,2
+  125             1,1                2,2                    1,0                  2,0
+  160             1,0                2,0                    1,0                  2,0
+  200             0,9                1,8                    1,0                  2,0
+  250             0,8                1,6                    1,0                  2,0
+  315             0,8                1,6                    1,0                  2,0
+  400             0,8                1,6                    1,1                  2,2
+  500             0,8                1,6                    1,2                  2,4
+  630             0,8                1,6                    1,3                  2,5
+  800             0,8                1,6                    1,6                  3,1
+  1000            0,8                1,6                    1,9                  3,7
+  1250            0,8                1,6                    2,2                  4,3
+  1600            0,8                1,6                    2,5                  4,9
+  2000            0,8                1,6                    2,8                  5,5
+  2500            1,0                2,0                    3,2                  6,3
+  3150            1,2                2,4                    3,6                  7,1
+  4000            1,4                2,7                    4,0                  7,8
+  5000            1,6                3,1                    4,4                  8,6
+
+Tabell C.3: Standardavvik for repeterbarhet/reproduserbarhet og utvidet
+usikkerhet etter NS-EN ISO 12999-1 for veid normalisert trinnlydnivå,
+Ln,w, med spektrumkorreksjoner, og trinnlydforbedring, DLw (NS-EN ISO
+717-2)
+
+  Veid ett-tallsverdi   Repeterbarhet sr [dB]  Usikkerhet Ur [dB]  Reproduserbarhet sR [dB]  Usikkerhet UR [dB]
+  Ln,w                  0,5                    2,9                 –                          –
+  Ln,w + CI             0,6                    2,9                 –                          –
+  ΔLw                   –                      –                   1,1                        2,7
+
+--------------------------------------------------------------------------------
+VEDLEGG D — LYDLABORATORIET
+--------------------------------------------------------------------------------
+(Figurene/snittegningene er lagt i "bilder fra sintef-rapport/")
+
+Figur D.1: Vertikalsnitt av senderrom, mottakerrom og prøveåpning for
+vertikale konstruksjoner
+Figur D.2: Horisontalsnitt av senderrom, mottakerrom og prøveåpning for
+horisontale konstruksjoner
+Figur D.3: Prøveåpningen for vegger (til høyre) sett fra mottakerrommet
+Figur D.4: Horisontalsnitt av senderrommet for horisontale konstruksjoner
+Figur D.5: Vertikalsnitt av senderrommet for horisontale konstruksjoner
+Figur D.6: Vertikalsnitt av senderrommet for horisontale konstruksjoner
+
+--------------------------------------------------------------------------------
+VEDLEGG E — MÅLEBLADER
+--------------------------------------------------------------------------------
+Måleblader fra prøvingen er vedlagt på de påfølgende fire sidene.
+
+--- Måleblad 102025049-31-1 ---
+Normalized impact sound pressure levels according to ISO 10140-3
+Laboratory measurements of impact sound insulation of floors
+
+Client: Optinor AS                          Date of test: 30.05.2023
+Test room identification: SINTEF Community - akustikklaboratoriet i prøvehallen
+Test specimen mounted by: Client
+Product identification: OptiNor systemgulv
+Description of the specimen: Referansedekke av 140 mm betong / OptiNor
+  systemgulv / sponplate / Parkett med underlag av skum
+
+Receiving room:  Volume 200 m³   Air temp 23,8 °C   RH 30,1 %   Static pressure 100,3 kPa
+Source room:     Volume 54 m³    Air temp 21,1 °C    RH 33,4 %   Static pressure 100,3 kPa
+
+Normalized impact sound pressure levels, Ln, dB (1/3 octave):
+  Frekvens [Hz]   Ln [dB]
+  50              57,7
+  63              57,7
+  80              56,7
+  100             59,3
+  125             59,2
+  160             55,5
+  200             56,2
+  250             54,6
+  315             52,0
+  400             48,6
+  500             45,8
+  630             40,0
+  800             37,1
+  1000            35,6
+  1250            30,1
+  1600            26,8
+  2000            22,2
+  2500            18,5
+  3150            < 15,1
+  4000            < 13,6
+  5000            < 12,1
+
+Rating according to ISO 717-2: Ln,w (CI) = 49 (1) dB   CI50-2500 = 3 dB
+Evaluation based on laboratory measurement results obtained in one-third-
+octave bands by an engineering method.
+Name of test institute: SINTEF Community
+No. of test report: 102025049-31-1
+
+--- Måleblad 102025049-31-2 ---
+Reduction of impact sound pressure level according to ISO 10140-1
+Laboratory measurements of the reduction of transmitted impact noise by
+floor coverings on a heavyweight reference floor
+
+Client: Optinor AS                          Date of test: 30.05.2023
+Test room identification: SINTEF Community - akustikklaboratoriet i prøvehallen
+Test specimen mounted by: Client
+Product identification: OptiNor systemgulv
+Description of the specimen: Referansedekke av 140 mm betong / OptiNor
+  systemgulv / sponplate / Parkett med underlag av skum
+
+Receiving room:  Volume 200 m³   Air temp 23,8 °C   RH 30,1 %   Static pressure 100,3 kPa
+Source room:     Volume 54 m³    Air temp 21,1 °C   RH 33,4 %   Type of reference floor: Heavyweight
+
+Reduction of impact sound pressure level, dB (1/3 octave):
+  Frekvens [Hz]   Ln,0 [dB]   ΔL [dB]
+  50              58,8        1,1
+  63              57,8        0,1
+  80              59,2        2,5
+  100             63,0        3,7
+  125             64,4        5,2
+  160             64,3        8,8
+  200             68,1        11,9
+  250             70,5        15,9
+  315             72,6        20,6
+  400             72,0        23,4
+  500             73,7        27,9
+  630             73,2        33,2
+  800             72,8        35,7
+  1000            72,8        37,2
+  1250            73,0        42,9
+  1600            73,0        46,2
+  2000            73,0        50,8
+  2500            73,4        54,9
+  3150            74,0        58,9
+  4000            73,0        59,4
+  5000            70,9        58,8
+
+Rating according to ISO 717-2: ΔLw = 27 dB   CI = -12 dB   CI,r = 1 dB
+Name of test institute: SINTEF Community
+No. of test report: 102025049-31-2
+
+--- Måleblad 102025049-31-3 ---
+Sound reduction index according to ISO 10140-2
+Laboratory measurement of sound insulation of building elements
+
+Client: Optinor AS                          Date of test: 30.05.2023
+Test room identification: SINTEF Community - akustikklaboratoriet i prøvehallen
+Test specimen mounted by: Client
+Product identification: OptiNor systemgulv
+Description of the specimen: Referansedekke av 140 mm betong / OptiNor
+  systemgulv / sponplate / Parkett med underlag av skum
+
+Receiving room:  Volume 200 m³   Air temp 23,8 °C   RH 30,1 %   Static pressure 100,3 kPa
+Source room:     Volume 54 m³    Air temp 21,1 °C   RH 33,4 %   Static pressure 100,9 kPa
+Area, S, of test element: 10,36 m²
+
+Sound reduction index, R, dB (1/3 octave):
+  Frekvens [Hz]   R [dB]
+  50              34,1
+  63              32,4
+  80              43,4
+  100             39,8
+  125             38,5
+  160             36,8
+  200             37,6
+  250             40,8
+  315             45,0
+  400             48,0
+  500             52,2
+  630             55,8
+  800             59,9
+  1000            64,2
+  1250            67,6
+  1600            69,2
+  2000            70,8
+  2500            68,6
+  3150            68,7
+  4000            71,3
+  5000            74,3
+
+Rating according to ISO 717-1: Rw (C; Ctr) = 54 (-2; -6) dB
+  C50-3150 = -2 dB   C50-5000 = -1 dB   C100-5000 = -1 dB
+  Ctr,50-3150 = -7 dB   Ctr,50-5000 = -7 dB   Ctr,100-5000 = -6 dB
+Name of test institute: SINTEF Community
+No. of test report: 102025049-31-3
+
+--- Måleblad 102025049-31-4 ---
+Sound reduction improvement index according to ISO 10140-1
+Laboratory measurements of sound reduction index improvement by
+additional lining
+
+Client: Optinor AS                          Date of test: 30.05.2023
+Test room identification: SINTEF Community - akustikklaboratoriet i prøvehallen
+Test specimen mounted by: Client
+Product identification: OptiNor systemgulv
+Description of the specimen: Referansedekke av 140 mm betong / OptiNor
+  systemgulv / sponplate / Parkett med underlag av skum
+
+Receiving room:  Volume 200 m³   Air temp 23,8 °C   RH 30,1 %   Static pressure 100,3 kPa
+Source room:     Volume 54 m³    Air temp 21,1 °C   RH 33,4 %   Static pressure 100,3 kPa
+Size of test opening: 10,36 m²
+
+Sound reduction improvement index, R, dB (1/3 octave):
+  Frekvens [Hz]   R [dB]
+  50              -0,6
+  63              1,3
+  80              1,7
+  100             0,8
+  125             3,5
+  160             1,4
+  200             1,9
+  250             4,2
+  315             6,5
+  400             8,0
+  500             8,6
+  630             10,0
+  800             12,3
+  1000            15,4
+  1250            18,2
+  1600            18,3
+  2000            19,7
+  2500            17,8
+  3150            15,7
+  4000            16,2
+  5000            18,6
+
+Rating according to ISO 717-1: Rw,heavy = 6 dB   (Rw+C)heavy = 5 dB   (Rw+Ctr)heavy = 5 dB
+Name of test institute: SINTEF Community
+No. of test report: 102025049-31-4
+
+Teknologi for et bedre samfunn — SINTEF
+
+
+================================================================================
+NOTE OM BILDEUTTREKK
+================================================================================
+Fra "Presentasjon engelsk.pptx" ble 6 bilder hentet ut. Fem av disse
+(JPEG/PNG) ligger i "bilder fra presentasjon/". Det sjette bildet var
+lagret i formatet EMF (Windows Enhanced Metafile) og kunne ikke
+konverteres til et vanlig bildeformat i dette miljøet — filen er likevel
+lagt ved i original .emf-form (presentasjon-bilde-03-KUNNE-IKKE-
+KONVERTERES.emf). Den kan åpnes i PowerPoint eller konverteres med et
+Windows-verktøy om nødvendig.
+
+Fra "Sintef - test.pdf" ble 30 bilder/figurer/diagrammer hentet ut (kun
+tomme/trivielle grafikkfragmenter under 1 KB ble utelatt) og lagt i
+"bilder fra sintef-rapport/".
