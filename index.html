@@ -89,6 +89,42 @@
     }
     .nav-cta:hover { background: var(--g800) !important; transform: translateY(-1px); }
 
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger {
+      display: flex; align-items: center; gap: 0.35rem;
+      background: none; border: none; cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem; font-weight: 500; letter-spacing: 0.01em;
+      color: rgba(255,255,255,0.88);
+      transition: color 0.2s;
+    }
+    .nav-dropdown-trigger:hover { color: #fff; }
+    #nav.scrolled .nav-dropdown-trigger { color: var(--ink2); }
+    #nav.scrolled .nav-dropdown-trigger:hover { color: var(--g600); }
+    .nav-dropdown-trigger svg { transition: transform 0.2s ease; }
+    .nav-dropdown.open .nav-dropdown-trigger svg,
+    .nav-dropdown:hover .nav-dropdown-trigger svg { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      position: absolute; top: calc(100% + 0.9rem); left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      background: #fff; border-radius: 12px; min-width: 230px;
+      padding: 0.5rem; list-style: none;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.05);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 300;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown.open .nav-dropdown-menu {
+      opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown-menu li a {
+      display: block; padding: 0.7rem 0.9rem; border-radius: 7px;
+      color: var(--ink2) !important; font-size: 0.85rem; font-weight: 500;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-dropdown-menu li a:hover { background: var(--g50); color: var(--g700) !important; }
+
     /* ─── HERO ─────────────────────────────────────────── */
     .hero {
       min-height: 100vh;
@@ -844,6 +880,18 @@
     <li><a href="#installation">Montering</a></li>
     <li><a href="#gallery">Prosjektbilder</a></li>
     <li><a href="/brand_assets/Presentasjon engelsk.pptx" target="_blank">English presentation</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-trigger">
+        Andre produkter
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <ul class="nav-dropdown-menu">
+        <li><a href="/rekkverk.html">Rekkverk</a></li>
+        <li><a href="/varmematteunderlag.html">Varmematteunderlag</a></li>
+        <li><a href="/trykktest-skrue.html">Trykktest skrue</a></li>
+        <li><a href="/trykktest-demper.html">Trykktest demper</a></li>
+      </ul>
+    </li>
     <li><a href="#contact" class="nav-cta">Kontakt oss</a></li>
   </ul>
 </nav>
@@ -1371,6 +1419,18 @@
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 30);
   }, { passive: true });
+
+  // Nav dropdown (click toggle for touch, in addition to CSS hover)
+  document.querySelectorAll('.nav-dropdown').forEach(dd => {
+    const trigger = dd.querySelector('.nav-dropdown-trigger');
+    trigger.addEventListener('click', e => {
+      e.stopPropagation();
+      dd.classList.toggle('open');
+    });
+  });
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.nav-dropdown.open').forEach(dd => dd.classList.remove('open'));
+  });
 
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {

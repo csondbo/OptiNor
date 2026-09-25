@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trykktest demper – OptiNor</title>
+  <meta name="description" content="Trykktesting og teknisk dokumentasjon for demperen i OptiNors gulvsystem." />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      --g900: #0a2b0a;
+      --g800: #0e3d0e;
+      --g700: #155215;
+      --g600: #1a6e1a;
+      --g500: #228b22;
+      --g400: #2faa2f;
+      --g300: #5ec85e;
+      --g200: #a8dda8;
+      --g100: #dff0df;
+      --g50:  #f2faf2;
+      --cream: #f8fbf8;
+      --white: #ffffff;
+      --ink:  #111a11;
+      --ink2: #3a4b3a;
+      --ink3: #6b7e6b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ──────────────────────────────────────────── */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 1.1rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.35s ease, box-shadow 0.35s ease;
+    }
+    #nav.scrolled {
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.07);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; }
+    .nav-brand img {
+      height: 40px; width: auto;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    #nav.scrolled .nav-brand img { opacity: 1; }
+    .nav-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem; font-weight: 700; letter-spacing: -0.02em;
+      color: var(--g700);
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 2.25rem; list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.88);
+      text-decoration: none; letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+    #nav.scrolled .nav-links a { color: var(--ink2); }
+    #nav.scrolled .nav-links a:hover { color: var(--g600); }
+    .nav-cta {
+      background: var(--g700) !important;
+      color: #fff !important;
+      padding: 0.55rem 1.35rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+    .nav-cta:hover { background: var(--g800) !important; transform: translateY(-1px); }
+
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger {
+      display: flex; align-items: center; gap: 0.35rem;
+      background: none; border: none; cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem; font-weight: 500; letter-spacing: 0.01em;
+      color: rgba(255,255,255,0.88);
+      transition: color 0.2s;
+    }
+    .nav-dropdown-trigger:hover { color: #fff; }
+    #nav.scrolled .nav-dropdown-trigger { color: var(--ink2); }
+    #nav.scrolled .nav-dropdown-trigger:hover { color: var(--g600); }
+    .nav-dropdown-trigger svg { transition: transform 0.2s ease; }
+    .nav-dropdown.open .nav-dropdown-trigger svg,
+    .nav-dropdown:hover .nav-dropdown-trigger svg { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      position: absolute; top: calc(100% + 0.9rem); left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      background: #fff; border-radius: 12px; min-width: 230px;
+      padding: 0.5rem; list-style: none;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.05);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 300;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown.open .nav-dropdown-menu {
+      opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown-menu li a {
+      display: block; padding: 0.7rem 0.9rem; border-radius: 7px;
+      color: var(--ink2) !important; font-size: 0.85rem; font-weight: 500;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-dropdown-menu li a:hover { background: var(--g50); color: var(--g700) !important; }
+
+    /* ─── HERO ─────────────────────────────────────────── */
+    .hero {
+      min-height: 56vh;
+      position: relative;
+      display: flex; align-items: center;
+      background: var(--g900);
+      overflow: hidden;
+    }
+    .hero-radial {
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 75% 65% at 72% 48%, rgba(34,139,34,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 45% 70% at 18% 25%, rgba(21,82,21,0.14) 0%, transparent 55%),
+        radial-gradient(ellipse 30% 50% at 85% 85%, rgba(21,82,21,0.1) 0%, transparent 50%);
+    }
+    .hero-noise {
+      position: absolute; inset: 0; pointer-events: none; opacity: 0.25; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .hero-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 72px 72px;
+    }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 1240px; margin: 0 auto;
+      padding: 10rem 2.5rem 4.5rem;
+    }
+
+    .hero-kicker {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--g300);
+      display: flex; align-items: center; gap: 0.7rem;
+      margin-bottom: 1.4rem;
+    }
+    .hero-kicker::before {
+      content: ''; display: block;
+      width: 2rem; height: 1px; background: var(--g300);
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 700; line-height: 1.06; letter-spacing: -0.03em;
+      color: #fff; margin-bottom: 1.4rem;
+    }
+    .hero-title em { font-style: italic; color: var(--g300); }
+
+    .hero-sub {
+      font-size: 1.05rem; font-weight: 300; line-height: 1.72;
+      color: rgba(255,255,255,0.68); max-width: 620px;
+    }
+
+    /* ─── SECTION SHELL ─────────────────────────────────── */
+    .sec { padding: 7rem 2.5rem; }
+    .wrap { max-width: 1240px; margin: 0 auto; }
+
+    .sec-kicker {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--g600);
+      display: flex; align-items: center; gap: 0.65rem;
+      margin-bottom: 0.9rem;
+    }
+    .sec-kicker::before {
+      content: ''; width: 1.5rem; height: 2px; background: var(--g500);
+    }
+    .sec-kicker-center { justify-content: center; }
+    .sec-kicker-center::before { display: none; }
+
+    .sec-h {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.8vw, 3.1rem);
+      font-weight: 700; line-height: 1.08; letter-spacing: -0.025em;
+      color: var(--ink); margin-bottom: 1.25rem;
+    }
+    .sec-h-white { color: #fff; }
+
+    .sec-p {
+      font-size: 1.02rem; line-height: 1.75; color: var(--ink2); max-width: 640px;
+    }
+    .sec-p-muted { color: rgba(255,255,255,0.62); }
+
+    .pending-card {
+      display: flex; align-items: flex-start; gap: 1.2rem;
+      margin-top: 2.5rem; padding: 1.75rem 2rem;
+      background: var(--white); border-radius: 12px;
+      border: 1px solid #daeada; max-width: 640px;
+    }
+    .pending-icon {
+      width: 2.6rem; height: 2.6rem; flex-shrink: 0; border-radius: 8px;
+      background: var(--g50); border: 1px solid #d6ead6; color: var(--g700);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pending-card p { font-size: 0.9rem; line-height: 1.65; color: var(--ink2); }
+    .pending-card strong { display: block; color: var(--ink); margin-bottom: 0.3rem; font-size: 0.95rem; }
+
+    /* ─── CTA ────────────────────────────────────────────── */
+    .cta-sec { background: var(--white); text-align: center; }
+    .cta-box { max-width: 660px; margin: 0 auto; padding: 5.5rem 2rem; }
+    .cta-p { font-size: 1.02rem; color: var(--ink2); line-height: 1.75; margin: 1.5rem auto 2.5rem; max-width: 480px; }
+    .cta-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-lg {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 1.05rem 2.4rem; border-radius: 8px;
+      font-size: 0.97rem; font-weight: 600; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-lg-green {
+      background: var(--g700); color: #fff;
+      box-shadow: 0 4px 24px rgba(21,82,21,0.22), 0 8px 48px rgba(21,82,21,0.1);
+    }
+    .btn-lg-green:hover {
+      background: var(--g800); transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(21,82,21,0.3), 0 16px 60px rgba(21,82,21,0.14);
+    }
+    .btn-lg-out {
+      border: 2px solid var(--g700); color: var(--g700);
+    }
+    .btn-lg-out:hover { background: var(--g700); color: #fff; transform: translateY(-2px); }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    footer {
+      background: var(--g900); color: rgba(255,255,255,0.55);
+      padding: 4.5rem 2.5rem 2.5rem;
+    }
+    .foot-inner { max-width: 1240px; margin: 0 auto; }
+    .foot-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem; padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 2rem;
+    }
+    .foot-logo { display: flex; flex-direction: column; gap: 1rem; }
+    .foot-tag { font-size: 0.85rem; line-height: 1.65; color: rgba(255,255,255,0.4); max-width: 280px; }
+    .foot-h {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--g300); margin-bottom: 1.25rem;
+    }
+    .foot-links { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+    .foot-links a {
+      font-size: 0.875rem; color: rgba(255,255,255,0.5); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .foot-links a:hover { color: #fff; }
+    .foot-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.78rem; color: rgba(255,255,255,0.28);
+    }
+
+    /* ─── SCROLL REVEAL ─────────────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.08s; }
+    .d2 { transition-delay: 0.16s; }
+
+    /* ─── RESPONSIVE ────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .foot-top { grid-template-columns: 1fr; gap: 2rem; }
+      .foot-bottom { flex-direction: column; gap: 0.4rem; text-align: center; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ══════════════════════════════════════════════ -->
+<nav id="nav">
+  <a class="nav-brand" href="/">
+    <img src="/brand_assets/logo3.jpeg" alt="OptiNor Logo" />
+    <span class="nav-wordmark">OptiNor</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#about">Om oss</a></li>
+    <li><a href="/#features">Produktet</a></li>
+    <li><a href="/#sintef">SINTEF</a></li>
+    <li><a href="/#installation">Montering</a></li>
+    <li><a href="/#gallery">Prosjektbilder</a></li>
+    <li><a href="/brand_assets/Presentasjon engelsk.pptx" target="_blank">English presentation</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-trigger">
+        Andre produkter
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <ul class="nav-dropdown-menu">
+        <li><a href="/rekkverk.html">Rekkverk</a></li>
+        <li><a href="/varmematteunderlag.html">Varmematteunderlag</a></li>
+        <li><a href="/trykktest-skrue.html">Trykktest skrue</a></li>
+        <li><a href="/trykktest-demper.html">Trykktest demper</a></li>
+      </ul>
+    </li>
+    <li><a href="/#contact" class="nav-cta">Kontakt oss</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ HERO ══════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-radial"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-inner">
+    <div class="hero-kicker">Andre produkter</div>
+    <h1 class="hero-title">Trykktest demper</h1>
+    <p class="hero-sub">
+      Trykktesting og teknisk dokumentasjon for demperen i OptiNors gulvsystem.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ CONTENT ═══════════════════════════════════════════ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-kicker">Dokumentasjon</div>
+      <h2 class="sec-h">Testresultater publiseres fortløpende</h2>
+      <p class="sec-p">
+        Detaljert dokumentasjon og resultater fra trykktesting av demperen i
+        OptiNors gulvsystem legges ut her etter hvert som de foreligger.
+      </p>
+      <div class="pending-card">
+        <div class="pending-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <p>
+          <strong>Innhold kommer</strong>
+          Ta gjerne kontakt med oss for teknisk dokumentasjon i mellomtiden —
+          vi hjelper deg med spesifikk informasjon om demperen på forespørsel.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ════════════════════════════════════════════════ -->
+<section class="sec cta-sec" id="contact">
+  <div class="cta-box">
+    <div class="sec-kicker sec-kicker-center reveal">Komme i gang</div>
+    <h2 class="sec-h reveal" style="font-size:clamp(2.1rem,4.5vw,3.4rem);">
+      Interessert i Optinor gulvsystem?
+    </h2>
+    <p class="cta-p reveal d1">
+      Ta kontakt for tilbud, teknisk veiledning og produktinformasjon.
+      Vi hjelper deg å finne den optimale løsningen for ditt prosjekt —
+      enten det er et leilighetsbygg, hotell eller kontorbygg.
+    </p>
+    <div class="cta-btns reveal d2">
+      <a href="mailto:dag@optinor.no" class="btn-lg btn-lg-green">
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Send e-post
+      </a>
+      <a href="tel:+4791747404" class="btn-lg btn-lg-out">
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.7A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09A16 16 0 0015.91 17l.65-.65a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Ring oss
+      </a>
+    </div>
+    <p style="margin-top:2rem;font-size:0.8rem;color:var(--ink3);">
+      Odvar Solbergsvei 196, 0973 Oslo &nbsp;·&nbsp; OptiNor AS &nbsp;·&nbsp; Dag J. Søndbø
+    </p>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ══════════════════════════════════════════════ -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="foot-logo">
+        <p class="foot-tag">
+          OptiNor AS leverer et høykvalitets høydejusterbart lydreduserende gulvsystem
+          — testet av SINTEF (rapport 2023:00775).
+        </p>
+      </div>
+      <div>
+        <div class="foot-h">Navigasjon</div>
+        <ul class="foot-links">
+          <li><a href="/#about">Om oss</a></li>
+          <li><a href="/#features">Produktet</a></li>
+          <li><a href="/#sintef">SINTEF-rapport</a></li>
+          <li><a href="/#installation">Montering</a></li>
+          <li><a href="/#contact">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="foot-h">Kontakt</div>
+        <ul class="foot-links">
+          <li><a href="mailto:dag@optinor.no">dag@optinor.no</a></li>
+          <li><a href="tel:+4791747404">+47 917 47 404</a></li>
+          <li style="color:rgba(255,255,255,0.45);">Odvar Solbergsvei 196</li>
+          <li style="color:rgba(255,255,255,0.45);">0973 Oslo</li>
+          <li style="color:rgba(255,255,255,0.45);">Dag J. Søndbø</li>
+          <li style="color:rgba(255,255,255,0.45);">Oppfinner / Lisenssinnehaver</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2024 OptiNor AS. Alle rettigheter forbeholdt.</span>
+      <span>Organisasjonsnummer 917 741 786</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive: true });
+
+  document.querySelectorAll('.nav-dropdown').forEach(dd => {
+    const trigger = dd.querySelector('.nav-dropdown-trigger');
+    trigger.addEventListener('click', e => {
+      e.stopPropagation();
+      dd.classList.toggle('open');
+    });
+  });
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.nav-dropdown.open').forEach(dd => dd.classList.remove('open'));
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
