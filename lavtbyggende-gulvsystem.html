@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Varmematteunderlag – OptiNor</title>
-  <meta name="description" content="OptiNor tilbyr Sefar® PowerHeat som varmematteunderlag til gulvsystemet – en tynn, fleksibel varmefolie med direkte overflateoppvarming." />
+  <title>Lavtbyggende gulvsystem – OptiNor</title>
+  <meta name="description" content="OptiNors lavtbyggende gulvsystem – fra 30 mm TS, for prosjekter med begrenset byggehøyde." />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/favicon.png" />
 
@@ -221,42 +221,316 @@
     }
     .sec-p-muted { color: rgba(255,255,255,0.62); }
 
-    .content-grid {
-      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: start;
+    .price-callout {
+      display: inline-flex; align-items: center; gap: 0.7rem;
+      margin-top: 2rem; padding: 1.1rem 1.6rem;
+      background: var(--g50); border: 1px solid #d6ead6; border-radius: 10px;
     }
-
-    .pdf-card {
-      background: var(--white); border-radius: 14px;
-      border: 1px solid #daeada; padding: 2.5rem;
-      box-shadow: 0 4px 40px rgba(0,0,0,0.05);
-    }
-    .pdf-card-icon {
-      width: 3rem; height: 3rem; border-radius: 10px;
+    .price-callout-icon {
+      width: 2.2rem; height: 2.2rem; border-radius: 50%; flex-shrink: 0;
       background: var(--g700); color: #fff;
       display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1.3rem;
     }
-    .pdf-card h3 {
+    .price-callout span {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem;
-    }
-    .pdf-card p {
-      font-size: 0.88rem; line-height: 1.65; color: var(--ink2); margin-bottom: 1.5rem;
+      font-size: 1.15rem; font-weight: 700; color: var(--g700);
     }
 
-    .heat-points { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.9rem; }
-    .h-point {
-      display: flex; align-items: flex-start; gap: 0.9rem;
-      padding: 1rem 1.1rem; border-radius: 8px;
+    .feat-grid-simple {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1.35rem;
+      margin-top: 3rem;
+    }
+    .feat-card {
+      padding: 2rem; border-radius: 12px;
       background: var(--g50); border: 1px solid #d6ead6;
+      transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
     }
-    .h-check {
-      width: 1.7rem; height: 1.7rem; flex-shrink: 0; border-radius: 6px;
-      background: rgba(21,82,21,0.1); border: 1px solid rgba(21,82,21,0.2);
+    .feat-card:hover { transform: translateY(-4px); box-shadow: 0 14px 48px rgba(34,139,34,0.1); border-color: var(--g300); }
+    .feat-icon {
+      width: 2.75rem; height: 2.75rem; border-radius: 9px;
+      background: var(--g700); color: #fff;
       display: flex; align-items: center; justify-content: center;
-      color: var(--g700); font-size: 0.75rem;
+      margin-bottom: 1.2rem;
     }
-    .h-text { font-size: 0.875rem; color: var(--ink2); line-height: 1.55; }
+    .feat-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.65rem;
+    }
+    .feat-desc { font-size: 0.875rem; line-height: 1.65; color: var(--ink2); }
+
+    /* ─── GALLERY ───────────────────────────────────────────── */
+    .gallery-sec {
+      background: var(--g900);
+      padding: 0;
+      overflow: hidden;
+    }
+    .gallery-header {
+      padding: 7rem 2.5rem 4rem;
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .gallery-header .sec-kicker { color: var(--g300); }
+    .gallery-header .sec-h { color: var(--white); margin: 0; }
+    .gallery-drag-hint {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--g300);
+      opacity: 0.7;
+      flex-shrink: 0;
+    }
+    .drag-arrow {
+      display: flex;
+      gap: 3px;
+    }
+    .drag-arrow span {
+      display: block;
+      width: 5px; height: 5px;
+      border-right: 2px solid var(--g300);
+      border-top: 2px solid var(--g300);
+      transform: rotate(45deg);
+      animation: arrowPulse 1.4s ease-in-out infinite;
+    }
+    .drag-arrow span:nth-child(2) { animation-delay: 0.15s; }
+    .drag-arrow span:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes arrowPulse {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+
+    .gallery-strip-outer {
+      position: relative;
+    }
+    .gallery-strip-outer::before,
+    .gallery-strip-outer::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 320px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .gallery-strip-outer::before {
+      left: 0;
+      background: linear-gradient(to right, var(--g900) 0%, transparent 100%);
+    }
+    .gallery-strip-outer::after {
+      right: 0;
+      background: linear-gradient(to left, var(--g900) 0%, transparent 100%);
+    }
+
+    .gallery-strip-wrap {
+      overflow-x: auto;
+      overflow-y: hidden;
+      cursor: grab;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .gallery-strip-wrap::-webkit-scrollbar { display: none; }
+    .gallery-strip-wrap.dragging { cursor: grabbing; }
+
+    .gallery-strip {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 0 2.5rem;
+      width: max-content;
+    }
+
+    .gf {
+      position: relative;
+      flex-shrink: 0;
+      width: 340px;
+      height: 240px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--g800);
+      cursor: pointer;
+    }
+    .gf img {
+      display: block;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .gf:hover img { transform: scale(1.04); }
+
+    .gf-num {
+      position: absolute;
+      top: 1.1rem; left: 1.1rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--g300);
+      background: rgba(10,43,10,0.7);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(94,200,94,0.25);
+      border-radius: 4px;
+      padding: 0.25rem 0.55rem;
+    }
+
+    .gf-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2.5rem 1.2rem 1.2rem;
+      background: linear-gradient(to top, rgba(10,43,10,0.88) 0%, rgba(10,43,10,0.4) 60%, transparent 100%);
+      color: rgba(255,255,255,0.88);
+      font-size: 0.82rem;
+      font-weight: 500;
+      line-height: 1.4;
+      transform: translateY(4px);
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .gf:hover .gf-caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-progress {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 2.5rem 2.5rem 7rem;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+    .gp-bar {
+      flex: 1;
+      height: 2px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .gp-fill {
+      height: 100%;
+      background: var(--g400);
+      border-radius: 2px;
+      transition: width 0.1s linear;
+      width: 0%;
+    }
+    .gp-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--g300);
+      opacity: 0.6;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-drag-hint { display: none; }
+      .gf { width: 78vw; height: 240px; }
+    }
+
+    /* ─── LIGHTBOX ──────────────────────────────────────────── */
+    .lb {
+      position: fixed;
+      inset: 0;
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .lb.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .lb-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(5, 18, 5, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .lb-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+    .lb-img-wrap {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 40px 120px rgba(0,0,0,0.7);
+    }
+    .lb-img-wrap img {
+      display: block;
+      max-width: 88vw;
+      max-height: 78vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      transform: scale(0.96);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .lb.open .lb-img-wrap img {
+      transform: scale(1);
+    }
+    .lb-caption {
+      margin-top: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.85rem;
+      font-weight: 400;
+      text-align: center;
+      max-width: 560px;
+    }
+    .lb-counter {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: var(--g300);
+      margin-top: 0.4rem;
+      opacity: 0.7;
+    }
+    .lb-close {
+      position: fixed;
+      top: 1.5rem; right: 1.75rem;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+      z-index: 2;
+    }
+    .lb-close:hover { background: rgba(255,255,255,0.16); transform: rotate(90deg); }
+    .lb-close svg { stroke: rgba(255,255,255,0.8); }
+    .lb-prev, .lb-next {
+      position: fixed;
+      top: 50%; transform: translateY(-50%);
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+      z-index: 2;
+    }
+    .lb-prev { left: 1.5rem; }
+    .lb-next { right: 1.5rem; }
+    .lb-prev:hover { background: rgba(255,255,255,0.16); transform: translateY(-50%) translateX(-2px); }
+    .lb-next:hover { background: rgba(255,255,255,0.16); transform: translateY(-50%) translateX(2px); }
+    .lb-prev svg, .lb-next svg { stroke: rgba(255,255,255,0.8); }
 
     /* ─── CTA ────────────────────────────────────────────── */
     .cta-sec { background: var(--white); text-align: center; }
@@ -327,7 +601,7 @@
       .foot-top { grid-template-columns: 1fr; gap: 2rem; }
       .foot-bottom { flex-direction: column; gap: 0.4rem; text-align: center; }
       .nav-links { display: none; }
-      .content-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .feat-grid-simple { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -370,11 +644,11 @@
 
   <div class="hero-inner">
     <div class="hero-kicker">Andre produkter</div>
-    <h1 class="hero-title">Varmematteunderlag</h1>
+    <h1 class="hero-title">Lavtbyggende gulvsystem</h1>
     <p class="hero-sub">
-      OptiNor tilbyr Sefar® PowerHeat som varmematteunderlag til gulvsystemet —
-      en tynn, fleksibel varmefolie som varmer overflaten direkte, for raskere
-      oppvarming og jevn varmefordeling.
+      For prosjekter med begrenset byggehøyde leverer OptiNor en lavtbyggende
+      variant av gulvsystemet, fra 30 mm TS — samme prinsipp, redusert
+      byggehøyde.
     </p>
   </div>
 </section>
@@ -382,67 +656,118 @@
 <!-- ═══ CONTENT ═══════════════════════════════════════════ -->
 <section class="sec">
   <div class="wrap">
-    <div class="content-grid">
-      <div class="reveal">
-        <div class="sec-kicker">Sefar® PowerHeat</div>
-        <h2 class="sec-h">Direkte overflateoppvarming, tynt og fleksibelt</h2>
-        <p class="sec-p">
-          Sefar® PowerHeat er en tynn, fleksibel varmefolie som varmer opp
-          overflaten direkte i stedet for luften rundt den. Det gir raskere
-          oppvarming og en jevnere varmeopplevelse enn tradisjonelle
-          skumbaserte varmeløsninger, uten kalde soner eller hot spots.
-        </p>
-
-        <div class="heat-points">
-          <div class="h-point">
-            <div class="h-check">✓</div>
-            <div class="h-text"><strong style="color:var(--ink);display:block;margin-bottom:0.1rem;">Rask oppvarming</strong>Direkte overflateoppvarming gir vesentlig raskere oppvarmingstid enn skumbaserte løsninger.</div>
-          </div>
-          <div class="h-point">
-            <div class="h-check">✓</div>
-            <div class="h-text"><strong style="color:var(--ink);display:block;margin-bottom:0.1rem;">Lavere energiforbruk</strong>Effektiv varmefordeling reduserer energibehovet sammenlignet med tradisjonelle løsninger.</div>
-          </div>
-          <div class="h-point">
-            <div class="h-check">✓</div>
-            <div class="h-text"><strong style="color:var(--ink);display:block;margin-bottom:0.1rem;">Jevn varme</strong>Homogen oppvarming uten kalde soner eller hot spots.</div>
-          </div>
-          <div class="h-point">
-            <div class="h-check">✓</div>
-            <div class="h-text"><strong style="color:var(--ink);display:block;margin-bottom:0.1rem;">Tynt og fleksibelt</strong>Det tynne, fleksible materialet tilpasser seg underlaget uten å bygge opp gulvhøyden nevneverdig.</div>
-          </div>
-          <div class="h-point">
-            <div class="h-check">✓</div>
-            <div class="h-text"><strong style="color:var(--ink);display:block;margin-bottom:0.1rem;">Robust konstruksjon</strong>Utviklet for å opprettholde varmeytelsen under mekanisk belastning over tid.</div>
-          </div>
+    <div class="reveal">
+      <div class="sec-kicker">Lavtbyggende system</div>
+      <h2 class="sec-h">Samme prinsipp, mindre byggehøyde</h2>
+      <p class="sec-p">
+        Der etasjehøyden er begrenset, for eksempel ved rehabilitering eller
+        prosjekter med lav takhøyde, leverer OptiNor en lavtbyggende versjon
+        av det høydejusterbare gulvsystemet. Løsningen bygger videre på de
+        samme justeringsskruene og prinsippene som standardsystemet, og kan
+        også kombineres med vannbåren varme der det er aktuelt.
+      </p>
+      <div class="price-callout">
+        <div class="price-callout-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         </div>
+        <span>Lavtbyggende system — fra 30 mm TS</span>
       </div>
+    </div>
 
-      <div class="reveal d1">
-        <div class="pdf-card">
-          <div class="pdf-card-icon">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-          </div>
-          <h3>Produktark — Sefar® PowerHeat</h3>
-          <p>
-            Se det fullstendige produktarket fra Sefar for tekniske detaljer om
-            varmefolien, materialoppbygging og integrasjon i produksjon.
-          </p>
-          <a href="/brand_assets/BR_Sefar-PowerHeat_EN_20260430.pdf" target="_blank" class="btn-lg btn-lg-green" style="width:100%; justify-content:center;">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Åpne produktark (PDF)
-          </a>
+    <div class="feat-grid-simple">
+      <div class="feat-card reveal">
+        <div class="feat-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="8" cy="6" r="2" fill="currentColor" stroke="none"/><circle cx="16" cy="12" r="2" fill="currentColor" stroke="none"/><circle cx="10" cy="18" r="2" fill="currentColor" stroke="none"/></svg>
         </div>
+        <h3 class="feat-title">Fra 30 mm TS</h3>
+        <p class="feat-desc">Lav byggehøyde gjør systemet egnet der takhøyde eller dørhøyder er en begrensning.</p>
+      </div>
+      <div class="feat-card reveal d1">
+        <div class="feat-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 22.5A5 5 0 003 19c0-9.94 7-15.5 14-15.5a5 5 0 015 5 2.5 2.5 0 01-5 0"/></svg>
+        </div>
+        <h3 class="feat-title">Kan kombineres med vannbåren varme</h3>
+        <p class="feat-desc">Systemet tilpasses prosjekter som også skal ha vannbåren gulvvarme.</p>
+      </div>
+      <div class="feat-card reveal d2">
+        <div class="feat-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+        </div>
+        <h3 class="feat-title">Samme justeringsprinsipp</h3>
+        <p class="feat-desc">Bygger på de samme justeringsskruene som OptiNors standardsystem.</p>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ═══ GALLERY ════════════════════════════════════════════ -->
+<section class="gallery-sec" id="gallery">
+  <div class="gallery-header reveal">
+    <div>
+      <div class="sec-kicker">Fra prosjekter</div>
+      <h2 class="sec-h">Lavtbyggende gulvsystem i praksis</h2>
+    </div>
+    <div class="gallery-drag-hint">
+      <span>Dra for å bla</span>
+      <div class="drag-arrow">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-strip-outer">
+  <div class="gallery-strip-wrap" id="galleryStrip">
+    <div class="gallery-strip">
+      <div class="gf" data-lb="0">
+        <img src="/brand_assets/bilde-optimized.jpg" alt="Justeringsskruer i det lavtbyggende systemet" />
+        <div class="gf-num">01</div>
+        <div class="gf-caption">Justeringsskruer i det lavtbyggende systemet</div>
+      </div>
+      <div class="gf" data-lb="1">
+        <img src="/brand_assets/Lettvegger 1.JPG" alt="Montering med lettvegger på byggeplass" />
+        <div class="gf-num">02</div>
+        <div class="gf-caption">Montering med lettvegger på byggeplass</div>
+      </div>
+      <div class="gf" data-lb="2">
+        <img src="/brand_assets/Justerbart gulv med vannvarme.JPG" alt="Justerbart gulv med vannvarme" />
+        <div class="gf-num">03</div>
+        <div class="gf-caption">Justerbart gulv med vannvarme</div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="gallery-progress">
+    <div class="gp-bar"><div class="gp-fill" id="galleryFill"></div></div>
+    <span class="gp-label" id="galleryLabel">01 / 03</span>
+  </div>
+</section>
+
+<!-- ═══ LIGHTBOX ═══════════════════════════════════════════ -->
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <div class="lb-backdrop" id="lbBackdrop"></div>
+  <button class="lb-close" id="lbClose" aria-label="Lukk">
+    <svg width="18" height="18" fill="none" stroke-width="2.2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <button class="lb-prev" id="lbPrev" aria-label="Forrige">
+    <svg width="18" height="18" fill="none" stroke-width="2.2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="lb-next" id="lbNext" aria-label="Neste">
+    <svg width="18" height="18" fill="none" stroke-width="2.2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+  <div class="lb-inner">
+    <div class="lb-img-wrap"><img id="lbImg" src="" alt="" /></div>
+    <p class="lb-caption" id="lbCaption"></p>
+    <span class="lb-counter" id="lbCounter"></span>
+  </div>
+</div>
 
 <!-- ═══ CTA ════════════════════════════════════════════════ -->
 <section class="sec cta-sec" id="contact">
   <div class="cta-box">
     <div class="sec-kicker sec-kicker-center reveal">Komme i gang</div>
     <h2 class="sec-h reveal" style="font-size:clamp(2.1rem,4.5vw,3.4rem);">
-      Interessert i varmematteunderlag fra Optinor?
+      Interessert i lavtbyggende gulvsystem fra Optinor?
     </h2>
     <p class="cta-p reveal d1">
       Ta kontakt for tilbud, teknisk veiledning og produktinformasjon.
@@ -527,6 +852,94 @@
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Lightbox
+  const lbFrames = Array.from(document.querySelectorAll('.gf[data-lb]'));
+  const lb = document.getElementById('lb');
+  const lbImg = document.getElementById('lbImg');
+  const lbCaption = document.getElementById('lbCaption');
+  const lbCounter = document.getElementById('lbCounter');
+  let lbIdx = 0;
+
+  function lbOpen(idx) {
+    lbIdx = idx;
+    const frame = lbFrames[idx];
+    lbImg.src = frame.querySelector('img').src;
+    lbImg.alt = frame.querySelector('img').alt;
+    lbCaption.textContent = frame.querySelector('.gf-caption').textContent;
+    lbCounter.textContent = String(idx + 1).padStart(2,'0') + ' / ' + String(lbFrames.length).padStart(2,'0');
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function lbClose() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function lbGo(dir) {
+    lbIdx = (lbIdx + dir + lbFrames.length) % lbFrames.length;
+    lbOpen(lbIdx);
+  }
+
+  let wasDragged = false;
+  lbFrames.forEach(frame => {
+    frame.addEventListener('click', e => {
+      if (wasDragged) return;
+      lbOpen(parseInt(frame.dataset.lb));
+    });
+  });
+  if (lb) {
+    document.getElementById('lbClose').addEventListener('click', lbClose);
+    document.getElementById('lbBackdrop').addEventListener('click', lbClose);
+    document.getElementById('lbPrev').addEventListener('click', () => lbGo(-1));
+    document.getElementById('lbNext').addEventListener('click', () => lbGo(1));
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') lbClose();
+      if (e.key === 'ArrowLeft') lbGo(-1);
+      if (e.key === 'ArrowRight') lbGo(1);
+    });
+  }
+
+  // Gallery drag-scroll
+  const strip = document.getElementById('galleryStrip');
+  const fill = document.getElementById('galleryFill');
+  const label = document.getElementById('galleryLabel');
+  const total = lbFrames.length;
+
+  if (strip) {
+    let isDown = false, startX, scrollLeft, moved = false;
+
+    strip.addEventListener('mousedown', e => {
+      isDown = true; moved = false;
+      strip.classList.add('dragging');
+      startX = e.pageX - strip.offsetLeft;
+      scrollLeft = strip.scrollLeft;
+    });
+    strip.addEventListener('mouseleave', () => { isDown = false; strip.classList.remove('dragging'); });
+    strip.addEventListener('mouseup', () => {
+      isDown = false;
+      strip.classList.remove('dragging');
+      wasDragged = moved;
+      setTimeout(() => { wasDragged = false; }, 0);
+    });
+    strip.addEventListener('mousemove', e => {
+      if (!isDown) return;
+      e.preventDefault();
+      moved = true;
+      const x = e.pageX - strip.offsetLeft;
+      strip.scrollLeft = scrollLeft - (x - startX) * 1.2;
+    });
+
+    function updateProgress() {
+      const max = strip.scrollWidth - strip.clientWidth;
+      const pct = max > 0 ? strip.scrollLeft / max : 0;
+      fill.style.width = (pct * 100).toFixed(1) + '%';
+      const idx = Math.round(pct * (total - 1)) + 1;
+      label.textContent = String(idx).padStart(2,'0') + ' / ' + String(total).padStart(2,'0');
+    }
+    strip.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  }
 </script>
 </body>
 </html>
