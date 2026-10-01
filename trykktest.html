@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trykktest demper – OptiNor</title>
-  <meta name="description" content="Trykktesting og teknisk dokumentasjon for demperen i OptiNors gulvsystem." />
+  <title>Trykktest – OptiNor</title>
+  <meta name="description" content="Trykktesting og teknisk dokumentasjon for skruen og demperen i OptiNors gulvsystem." />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/favicon.png" />
 
@@ -191,7 +191,8 @@
     }
 
     /* ─── SECTION SHELL ─────────────────────────────────── */
-    .sec { padding: 7rem 2.5rem; }
+    .sec { padding: 6rem 2.5rem; }
+    .sec-tight { padding-top: 4rem; }
     .wrap { max-width: 1240px; margin: 0 auto; }
 
     .sec-kicker {
@@ -220,6 +221,67 @@
       font-size: 1.02rem; line-height: 1.75; color: var(--ink2); max-width: 640px;
     }
     .sec-p-muted { color: rgba(255,255,255,0.62); }
+
+    .divider {
+      max-width: 1240px; margin: 0 auto;
+      height: 1px; background: #e2ece2;
+    }
+
+    .content-grid {
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: start;
+    }
+
+    .results-table {
+      margin-top: 1.75rem; width: 100%; border-collapse: collapse;
+      background: var(--white); border-radius: 12px; overflow: hidden;
+      border: 1px solid #daeada;
+    }
+    .results-table thead th {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--g600);
+      padding: 0.8rem 1rem; border-bottom: 1px solid #daeada;
+      text-align: left; background: var(--g50);
+    }
+    .results-table tbody td {
+      font-size: 0.88rem; padding: 0.8rem 1rem;
+      color: var(--ink2); border-bottom: 1px solid #edf5ed;
+    }
+    .results-table tbody tr:last-child td { border-bottom: none; }
+    .results-table tbody tr.hi-row td { background: var(--g50); font-weight: 600; color: var(--ink); }
+    .results-table td.num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; color: var(--g700); letter-spacing: 0.02em;
+    }
+
+    .spec-card {
+      background: var(--white); border-radius: 14px;
+      border: 1px solid #daeada; padding: 2.25rem;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.05);
+    }
+    .spec-card-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--g600); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .spec-card-title::before {
+      content: ''; width: 1.25rem; height: 2px; background: var(--g500);
+    }
+    .spec-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.85rem 0; border-bottom: 1px solid #edf5ed;
+    }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-k { font-size: 0.83rem; color: var(--ink3); font-weight: 400; }
+    .spec-v {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.95rem; font-weight: 700; color: var(--g700); letter-spacing: 0.02em;
+    }
+    .pdf-link-btn {
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      margin-top: 1.75rem; width: 100%;
+    }
 
     .pending-card {
       display: flex; align-items: flex-start; gap: 1.2rem;
@@ -303,6 +365,7 @@
       .foot-top { grid-template-columns: 1fr; gap: 2rem; }
       .foot-bottom { flex-direction: column; gap: 0.4rem; text-align: center; }
       .nav-links { display: none; }
+      .content-grid { grid-template-columns: 1fr; gap: 3rem; }
     }
   </style>
 </head>
@@ -329,8 +392,7 @@
       <ul class="nav-dropdown-menu">
         <li><a href="/rekkverk.html">Rekkverk</a></li>
         <li><a href="/varmematteunderlag.html">Varmematteunderlag</a></li>
-        <li><a href="/trykktest-skrue.html">Trykktest skrue</a></li>
-        <li><a href="/trykktest-demper.html">Trykktest demper</a></li>
+        <li><a href="/trykktest.html">Trykktest</a></li>
       </ul>
     </li>
     <li><a href="/#contact" class="nav-cta">Kontakt oss</a></li>
@@ -345,18 +407,110 @@
 
   <div class="hero-inner">
     <div class="hero-kicker">Andre produkter</div>
-    <h1 class="hero-title">Trykktest demper</h1>
+    <h1 class="hero-title">Trykktest</h1>
     <p class="hero-sub">
-      Trykktesting og teknisk dokumentasjon for demperen i OptiNors gulvsystem.
+      Trykktesting og teknisk dokumentasjon for skruen og demperen i
+      OptiNors gulvsystem, utført av SINTEF.
     </p>
   </div>
 </section>
 
-<!-- ═══ CONTENT ═══════════════════════════════════════════ -->
-<section class="sec">
+<!-- ═══ SKRUE ══════════════════════════════════════════════ -->
+<section class="sec sec-tight" id="skrue">
+  <div class="wrap">
+    <div class="content-grid">
+      <div class="reveal">
+        <div class="sec-kicker">Prøveresultater — skrue</div>
+        <h2 class="sec-h">Trykktest — 200 mm stag</h2>
+        <p class="sec-p">
+          Fire prøver ble belastet mot stag med ulik montering. Samlet
+          deformasjon ved makslast var ca. 6,5 mm, med en stivhet i det
+          lineære området (ca. 2500–6000 N) på ca. 1760 N/mm.
+        </p>
+
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Prøve nr.</th>
+              <th>Montering</th>
+              <th>Maks last (N)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Helt i topp, last mot stag</td>
+              <td class="num">8740</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>5 mm under topp</td>
+              <td class="num">8690</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>3 gjenger i inngrep</td>
+              <td class="num">8490</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Rett under topp</td>
+              <td class="num">8760</td>
+            </tr>
+            <tr class="hi-row">
+              <td>Middelverdi</td>
+              <td></td>
+              <td class="num">8670</td>
+            </tr>
+            <tr>
+              <td>Standardavvik</td>
+              <td></td>
+              <td class="num">124</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="reveal d1">
+        <div class="spec-card">
+          <div class="spec-card-title">Nøkkeltall — skrue</div>
+          <div class="spec-row">
+            <span class="spec-k">Middelverdi maks last</span>
+            <span class="spec-v">8670 N</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-k">Standardavvik</span>
+            <span class="spec-v">124 N</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-k">Deformasjon ved makslast</span>
+            <span class="spec-v">ca. 6,5 mm</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-k">Stivhet (lineært område)</span>
+            <span class="spec-v">ca. 1760 N/mm</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-k">Prøvet av</span>
+            <span class="spec-v">SINTEF</span>
+          </div>
+          <a href="/brand_assets/Trykktest Skrue Sintef.pdf" target="_blank" class="btn-lg btn-lg-green pdf-link-btn">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Åpne testrapport (PDF)
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ DEMPER ═════════════════════════════════════════════ -->
+<section class="sec" id="demper">
   <div class="wrap">
     <div class="reveal">
-      <div class="sec-kicker">Dokumentasjon</div>
+      <div class="sec-kicker">Dokumentasjon — demper</div>
       <h2 class="sec-h">Testresultater publiseres fortløpende</h2>
       <p class="sec-p">
         Detaljert dokumentasjon og resultater fra trykktesting av demperen i
